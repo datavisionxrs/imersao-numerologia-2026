@@ -1,310 +1,358 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Star, 
-  ChevronRight, 
-  CheckCircle2, 
-  Calendar, 
-  Map, 
-  Lock, 
-  Compass, 
-  Zap, 
-  ArrowRight,
-  Menu,
-  X,
-  HelpCircle,
-  Clock,
-  Home
-} from 'lucide-react';
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerologia das Estrelas | Imersão Exclusiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+        }
 
-const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+        .amber-gradient-text {
+            background: linear-gradient(to right, #fde68a, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-  const smoothScroll = (e, id) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
-  };
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #fbbf24;
+        }
+    </style>
+</head>
+<body class="text-white selection:bg-amber-400/30 selection:text-amber-200">
 
-  return (
-    <div className="min-h-screen bg-neutral-950 text-white selection:bg-amber-400/30 selection:text-amber-200 font-sans">
-      {/* Navigation */}
-      <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-neutral-950/80 border-b border-white/10 backdrop-blur-md py-3' : 'bg-transparent py-5'}`}>
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-          <div className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-400 to-fuchsia-600 shadow-lg shadow-amber-500/20">
-              <Star className="h-6 w-6 text-neutral-950 fill-neutral-950" />
+    <!-- Navegação -->
+    <nav id="navbar" class="fixed top-0 z-50 w-full transition-all duration-300 py-5">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6">
+            <div class="flex items-center gap-2">
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-400 to-fuchsia-600 shadow-lg shadow-amber-500/20">
+                    <i data-lucide="star" class="h-6 w-6 text-neutral-950 fill-neutral-950"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight uppercase">Numerologia <span class="text-amber-400 text-xs align-top">★</span></span>
             </div>
-            <span className="text-xl font-bold tracking-tight uppercase">Numerologia <span className="text-amber-400 text-xs align-top">★</span></span>
-          </div>
 
-          {/* Desktop Nav */}
-          <div className="hidden items-center gap-8 md:flex">
-            <a href="#conteudo" onClick={(e) => smoothScroll(e, 'conteudo')} className="text-sm font-medium text-white/70 transition hover:text-white">Conteúdo</a>
-            <a href="#mentor" onClick={(e) => smoothScroll(e, 'mentor')} className="text-sm font-medium text-white/70 transition hover:text-white">Mentor</a>
-            <a href="#oferta" onClick={(e) => smoothScroll(e, 'oferta')} className="rounded-full bg-amber-400 px-5 py-2.5 text-sm font-bold text-neutral-950 transition hover:scale-105 active:scale-95">Reservar Vaga</a>
-          </div>
+            <!-- Desktop Nav -->
+            <div class="hidden items-center gap-8 md:flex">
+                <a href="#conteudo" class="text-sm font-medium text-white/70 transition hover:text-white">Conteúdo</a>
+                <a href="#mentor" class="text-sm font-medium text-white/70 transition hover:text-white">Mentor</a>
+                <a href="#oferta" class="rounded-full bg-amber-400 px-5 py-2.5 text-sm font-bold text-neutral-950 transition hover:scale-105 active:scale-95">Reservar Vaga</a>
+            </div>
 
-          {/* Mobile Menu Toggle */}
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X /> : <Menu />}
-          </button>
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden p-2" id="menu-toggle">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
         </div>
 
-        {/* Mobile Nav Menu */}
-        {isMenuOpen && (
-          <div className="absolute top-full left-0 w-full border-b border-white/10 bg-neutral-950/95 p-6 backdrop-blur-xl md:hidden">
-            <div className="flex flex-col gap-6">
-              <a href="#conteudo" onClick={(e) => smoothScroll(e, 'conteudo')} className="text-lg font-medium">Conteúdo</a>
-              <a href="#mentor" onClick={(e) => smoothScroll(e, 'mentor')} className="text-lg font-medium">Mentor</a>
-              <a href="#oferta" onClick={(e) => smoothScroll(e, 'oferta')} className="rounded-xl bg-amber-400 py-4 text-center font-bold text-neutral-950">Quero Participar</a>
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full border-b border-white/10 bg-neutral-950/95 p-6 backdrop-blur-xl md:hidden">
+            <div class="flex flex-col gap-6">
+                <a href="#conteudo" class="text-lg font-medium mobile-link">Conteúdo</a>
+                <a href="#mentor" class="text-lg font-medium mobile-link">Mentor</a>
+                <a href="#oferta" class="rounded-xl bg-amber-400 py-4 text-center font-bold text-neutral-950 mobile-link">Quero Participar</a>
             </div>
-          </div>
-        )}
-      </nav>
+        </div>
+    </nav>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-20 md:pt-48 md:pb-32">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute left-[-10%] top-[-10%] h-[500px] w-[500px] rounded-full bg-fuchsia-600/20 blur-[120px]" />
-          <div className="absolute right-[-5%] top-[10%] h-[400px] w-[400px] rounded-full bg-amber-500/10 blur-[100px]" />
-          <div className="absolute bottom-[-10%] left-[20%] h-[600px] w-[600px] rounded-full bg-violet-600/10 blur-[130px]" />
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-32 pb-20 md:pt-48 md:pb-32">
+        <div class="absolute inset-0 -z-10">
+            <div class="absolute left-[-10%] top-[-10%] h-[500px] w-[500px] rounded-full bg-fuchsia-600/20 blur-[120px]"></div>
+            <div class="absolute right-[-5%] top-[10%] h-[400px] w-[400px] rounded-full bg-amber-500/10 blur-[100px]"></div>
+            <div class="absolute bottom-[-10%] left-[20%] h-[600px] w-[600px] rounded-full bg-violet-600/10 blur-[130px]"></div>
         </div>
 
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
-            <div className="animate-in fade-in slide-in-from-left duration-700">
-              <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm font-medium text-amber-200">
-                <Star className="h-4 w-4 fill-amber-200" />
-                Imersão Exclusiva • Numerologia das Estrelas
-              </div>
-
-              <h1 className="mt-8 text-5xl font-bold leading-[1.1] tracking-tight md:text-7xl">
-                Existe um padrão <span className="bg-gradient-to-r from-amber-200 to-amber-500 bg-clip-text text-transparent">invisível</span> guiando a sua vida.
-              </h1>
-
-              <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/70 md:text-xl">
-                Descubra como alinhar <span className="font-semibold text-white">nome, data e escolhas</span> para sair do automático e tomar decisões com clareza absoluta.
-              </p>
-
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <a
-                  href="#oferta"
-                  onClick={(e) => smoothScroll(e, 'oferta')}
-                  className="group flex items-center justify-center gap-2 rounded-2xl bg-amber-400 px-8 py-4 text-center text-lg font-bold text-neutral-950 shadow-xl shadow-amber-400/10 transition-all hover:scale-[1.03] hover:shadow-amber-400/20 active:scale-95"
-                >
-                  Quero Participar da Imersão
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </a>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="relative mx-auto max-w-[480px] rounded-[2.5rem] border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-sm">
-                <div className="overflow-hidden rounded-[1.8rem] border border-amber-400/20 bg-gradient-to-b from-neutral-900 to-neutral-950 p-8">
-                  <div className="mb-10 flex items-center justify-between">
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-400/60">Conteúdo Programático</p>
-                      <h2 className="mt-2 text-2xl font-bold">O Que Vamos Explorar</h2>
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="grid items-center gap-16 lg:grid-cols-2">
+                <div class="opacity-0 translate-y-4 transition-all duration-700 ease-out" id="hero-content">
+                    <div class="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm font-medium text-amber-200">
+                        <i data-lucide="star" class="h-4 w-4 fill-amber-200"></i>
+                        Imersão Exclusiva • Numerologia das Estrelas
                     </div>
-                  </div>
 
-                  <div className="space-y-4">
-                    {[
-                      'Seu mapa numerológico essencial',
-                      'Padrões recorrentes na sua vida',
-                      'Bloqueios que te impedem de crescer',
-                      'O momento certo para agir',
-                    ].map((item, i) => (
-                      <div key={i} className="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/5 p-4 transition hover:bg-white/10">
-                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-400/20 text-amber-400">
-                          <CheckCircle2 className="h-5 w-5" />
+                    <h1 class="mt-8 text-5xl font-bold leading-[1.1] tracking-tight md:text-7xl">
+                        Existe um padrão <span class="amber-gradient-text">invisível</span> guiando a sua vida.
+                    </h1>
+
+                    <p class="mt-8 max-w-xl text-lg leading-relaxed text-white/70 md:text-xl">
+                        Descubra como alinhar <span class="font-semibold text-white">nome, data e escolhas</span> para sair do automático e tomar decisões com clareza absoluta.
+                    </p>
+
+                    <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+                        <a href="#oferta" class="group flex items-center justify-center gap-2 rounded-2xl bg-amber-400 px-8 py-4 text-center text-lg font-bold text-neutral-950 shadow-xl shadow-amber-400/10 transition-all hover:scale-[1.03] hover:shadow-amber-400/20 active:scale-95">
+                            Quero Participar da Imersão
+                            <i data-lucide="arrow-right" class="h-5 w-5 transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="relative mx-auto max-w-[480px] rounded-[2.5rem] border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-sm">
+                        <div class="overflow-hidden rounded-[1.8rem] border border-amber-400/20 bg-gradient-to-b from-neutral-900 to-neutral-950 p-8">
+                            <div class="mb-10">
+                                <p class="text-xs font-bold uppercase tracking-[0.2em] text-amber-400/60">Conteúdo Programático</p>
+                                <h2 class="mt-2 text-2xl font-bold">O Que Vamos Explorar</h2>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/5 p-4">
+                                    <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-400/20 text-amber-400">
+                                        <i data-lucide="check-circle-2" class="h-5 w-5"></i>
+                                    </div>
+                                    <span class="text-sm font-medium text-white/80">Seu mapa numerológico essencial</span>
+                                </div>
+                                <div class="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/5 p-4">
+                                    <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-400/20 text-amber-400">
+                                        <i data-lucide="check-circle-2" class="h-5 w-5"></i>
+                                    </div>
+                                    <span class="text-sm font-medium text-white/80">Padrões recorrentes na sua vida</span>
+                                </div>
+                                <div class="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/5 p-4">
+                                    <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-400/20 text-amber-400">
+                                        <i data-lucide="check-circle-2" class="h-5 w-5"></i>
+                                    </div>
+                                    <span class="text-sm font-medium text-white/80">Bloqueios que te impedem de crescer</span>
+                                </div>
+                                <div class="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/5 p-4">
+                                    <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-400/20 text-amber-400">
+                                        <i data-lucide="check-circle-2" class="h-5 w-5"></i>
+                                    </div>
+                                    <span class="text-sm font-medium text-white/80">O momento certo para agir</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 rounded-2xl border border-fuchsia-400/20 bg-fuchsia-500/10 p-5 text-sm leading-relaxed text-white/70">
+                                Inspirada nos fundamentos da numerologia que tornaram <span class="font-bold text-white">Oscar Ahumada</span> uma referência internacional.
+                            </div>
                         </div>
-                        <span className="text-sm font-medium text-white/80">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-8 rounded-2xl border border-fuchsia-400/20 bg-fuchsia-500/10 p-5 text-sm leading-relaxed text-white/70">
-                    Inspirada nos fundamentos da numerologia que tornaram <span className="font-bold text-white">Oscar Ahumada</span> uma referência internacional.
-                  </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      {/* Mentor Section */}
-      <section className="py-24 bg-white/5" id="mentor">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] items-center">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-[0.3em] text-amber-400/80">O Mentor das Estrelas</span>
-              <h3 className="mt-6 text-4xl font-bold md:text-5xl leading-tight text-white">Domine seu destino com Oscar Ahumada</h3>
-              <p className="mt-8 text-xl leading-relaxed text-white/70">
-                Com mais de <span className="font-bold text-white">30 anos de prática</span>, Oscar Ahumada tornou-se a maior referência em numerologia, guiando celebridades, empresários e milhares de alunos ao redor do mundo.
-              </p>
-              
-              <div className="mt-12 space-y-6">
-                {[
-                  'Atendimentos exclusivos para grandes celebridades',
-                  'Participações em programas de TV nacionais',
-                  'Metodologia prática e livre de misticismos vazios',
-                  'Foco em resultados e clareza de vida'
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4">
-                    <CheckCircle2 className="h-6 w-6 text-amber-400" />
-                    <span className="text-lg text-white/80">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+    <!-- Mentor Section -->
+    <section class="py-24 bg-white/5" id="mentor">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="grid gap-16 lg:grid-cols-[1fr_1.2fr] items-center">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-amber-400/80">O Mentor das Estrelas</span>
+                    <h3 class="mt-6 text-4xl font-bold md:text-5xl leading-tight text-white">Domine seu destino com Oscar Ahumada</h3>
+                    <p class="mt-8 text-xl leading-relaxed text-white/70">
+                        Com mais de <span class="font-bold text-white">30 anos de prática</span>, Oscar Ahumada tornou-se a maior referência em numerologia, guiando celebridades, empresários e milhares de alunos ao redor do mundo.
+                    </p>
+                    
+                    <div class="mt-12 space-y-6">
+                        <div class="flex items-center gap-4">
+                            <i data-lucide="check-circle-2" class="h-6 w-6 text-amber-400"></i>
+                            <span class="text-lg text-white/80">Atendimentos exclusivos para grandes celebridades</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i data-lucide="check-circle-2" class="h-6 w-6 text-amber-400"></i>
+                            <span class="text-lg text-white/80">Participações em programas de TV nacionais</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i data-lucide="check-circle-2" class="h-6 w-6 text-amber-400"></i>
+                            <span class="text-lg text-white/80">Metodologia prática e livre de misticismos vazios</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i data-lucide="check-circle-2" class="h-6 w-6 text-amber-400"></i>
+                            <span class="text-lg text-white/80">Foco em resultados e clareza de vida</span>
+                        </div>
+                    </div>
+                </div>
 
-            <div className="relative grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
-                  <img 
-                    src="https://s03.video.glbimg.com/x216/5545574.jpg" 
-                    alt="Oscar Ahumada TV" 
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-110" 
-                  />
+                <div class="relative grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
+                            <img src="https://s03.video.glbimg.com/x216/5545574.jpg" alt="Oscar Ahumada TV" class="h-full w-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="aspect-square overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
+                            <img src="https://i.vimeocdn.com/video/432482891-53e342322ab4648f2b4e130c8f87e620eec35a6916aadf063bb35517112597f6-d?f=webp" alt="Oscar Ahumada Palestra" class="h-full w-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                    </div>
+                    <div class="flex items-center pt-8">
+                        <div class="w-full aspect-[3/4] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
+                            <img src="https://s2.glbimg.com/wRPnMM2E1Xju_Whwzct4lHAQWajcnAJvzHC4bzyzZdt5bwYh05jWz364WheUHDaZ/s.glbimg.com/et/pr/f/original/2013/03/06/numerologo.jpg" alt="Oscar Ahumada Entrevista" class="h-full w-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                    </div>
+                    <div class="absolute -right-4 -bottom-4 -z-10 h-1/2 w-1/2 rounded-full bg-amber-400/20 blur-3xl"></div>
                 </div>
-                <div className="aspect-square overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
-                  <img 
-                    src="https://i.vimeocdn.com/video/432482891-53e342322ab4648f2b4e130c8f87e620eec35a6916aadf063bb35517112597f6-d?f=webp" 
-                    alt="Oscar Ahumada Palestra" 
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-110" 
-                  />
-                </div>
-              </div>
-              <div className="flex items-center pt-8">
-                <div className="w-full aspect-[3/4] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
-                  <img 
-                    src="https://s2.glbimg.com/wRPnMM2E1Xju_Whwzct4lHAQWajcnAJvzHC4bzyzZdt5bwYh05jWz364WheUHDaZ/s.glbimg.com/et/pr/f/original/2013/03/06/numerologo.jpg" 
-                    alt="Oscar Ahumada Entrevista" 
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-110" 
-                  />
-                </div>
-              </div>
-              {/* Decorative gradient overlay behind images */}
-              <div className="absolute -right-4 -bottom-4 -z-10 h-1/2 w-1/2 rounded-full bg-amber-400/20 blur-3xl" />
             </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      {/* Final Offer */}
-      <section className="py-24" id="oferta">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="relative overflow-hidden rounded-[3rem] border border-amber-400/20 bg-neutral-900 p-8 md:p-16">
-            <div className="absolute top-0 right-0 h-64 w-64 bg-amber-400/10 blur-[80px]" />
-            
-            <div className="relative grid gap-16 lg:grid-cols-[1.1fr_0.9fr] items-center">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-[0.3em] text-amber-400">Investimento Exclusivo</span>
-                <h3 className="mt-6 text-4xl font-bold md:text-6xl text-white">Sua transformação completa com hospedagem.</h3>
+    <!-- Oferta Final -->
+    <section class="py-24" id="oferta">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="relative overflow-hidden rounded-[3rem] border border-amber-400/20 bg-neutral-900 p-8 md:p-16">
+                <div class="absolute top-0 right-0 h-64 w-64 bg-amber-400/10 blur-[80px]"></div>
                 
-                <div className="mt-8 grid gap-4">
-                  <div className="flex items-start gap-4 rounded-2xl bg-white/5 p-5">
-                    <Home className="h-6 w-6 text-amber-400 shrink-0" />
+                <div class="relative grid gap-16 lg:grid-cols-[1.1fr_0.9fr] items-center">
                     <div>
-                      <h4 className="font-bold text-white text-lg">Hospedagem Inclusa</h4>
-                      <p className="text-white/60">Fique hospedado no local do evento e aproveite a imersão total sem preocupações logísticas.</p>
-                    </div>
-                  </div>
+                        <span class="text-xs font-bold uppercase tracking-[0.3em] text-amber-400">Investimento Exclusivo</span>
+                        <h3 class="mt-6 text-4xl font-bold md:text-6xl text-white">Sua transformação completa com hospedagem.</h3>
+                        
+                        <div class="mt-8 grid gap-4">
+                            <div class="flex items-start gap-4 rounded-2xl bg-white/5 p-5">
+                                <i data-lucide="home" class="h-6 w-6 text-amber-400 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-white text-lg">Hospedagem Inclusa</h4>
+                                    <p class="text-white/60">Fique hospedado no local do evento e aproveite a imersão total sem preocupações logísticas.</p>
+                                </div>
+                            </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="flex items-center gap-4 rounded-2xl bg-white/5 p-4 border border-white/5">
-                      <Clock className="h-5 w-5 text-amber-400" />
-                      <div>
-                        <p className="text-xs text-white/50 uppercase font-bold tracking-wider">Check-in</p>
-                        <p className="text-sm font-semibold">xx/xx/2026 a partir das 14:00</p>
-                      </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="flex items-center gap-4 rounded-2xl bg-white/5 p-4 border border-white/5">
+                                    <i data-lucide="clock" class="h-5 w-5 text-amber-400"></i>
+                                    <div>
+                                        <p class="text-xs text-white/50 uppercase font-bold tracking-wider">Check-in</p>
+                                        <p class="text-sm font-semibold">xx/xx/2026 a partir das 14:00</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4 rounded-2xl bg-white/5 p-4 border border-white/5">
+                                    <i data-lucide="clock" class="h-5 w-5 text-amber-400"></i>
+                                    <div>
+                                        <p class="text-xs text-white/50 uppercase font-bold tracking-wider">Checkout</p>
+                                        <p class="text-sm font-semibold">xx/xx/2026 até as 14:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 space-y-4 text-white/80">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="h-5 w-5 text-amber-400"></i>
+                                <span>Acesso vitalício ao material de apoio</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="h-5 w-5 text-amber-400"></i>
+                                <span>Certificado de participação exclusivo</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="h-5 w-5 text-amber-400"></i>
+                                <span>Bônus: Calculadora de Mapa Pessoal</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="h-5 w-5 text-amber-400"></i>
+                                <span>Incluso hospedagem completa no local</span>
+                            </div>
+                        </div>
                     </div>
-                    <div className="flex items-center gap-4 rounded-2xl bg-white/5 p-4 border border-white/5">
-                      <Clock className="h-5 w-5 text-amber-400" />
-                      <div>
-                        <p className="text-xs text-white/50 uppercase font-bold tracking-wider">Checkout</p>
-                        <p className="text-sm font-semibold">xx/xx/2026 até as 14:00</p>
-                      </div>
+
+                    <div class="rounded-[2.5rem] border border-white/10 bg-white/5 p-10 text-center backdrop-blur-md shadow-2xl">
+                        <span class="text-sm font-bold uppercase tracking-[0.2em] text-white/50">Valor Especial de Lançamento</span>
+                        <div class="mt-8">
+                            <span class="text-2xl font-medium text-white/40 line-through decoration-red-500/50 decoration-2">R$ 4.999,99</span>
+                            <div class="mt-2 text-7xl font-black text-amber-400 tracking-tighter">R$ 3.000,00</div>
+                            <p class="mt-4 text-xl font-medium text-amber-200">ou 12x no cartão com taxas</p>
+                        </div>
+
+                        <a href="#" class="mt-12 group relative flex items-center justify-center gap-3 overflow-hidden rounded-2xl bg-amber-400 py-6 text-xl font-black text-neutral-950 shadow-xl shadow-amber-400/20 transition hover:scale-[1.02] hover:bg-amber-300 active:scale-95">
+                            GARANTIR MINHA VAGA AGORA
+                            <i data-lucide="arrow-right" class="h-6 w-6 transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                        
+                        <p class="mt-8 flex items-center justify-center gap-2 text-sm text-white/40">
+                            <i data-lucide="lock" class="h-4 w-4"></i>
+                            Pagamento 100% Seguro • 7 Dias de Garantia
+                        </p>
                     </div>
-                  </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div className="mt-10 space-y-4">
-                  {[
-                    'Acesso vitalício ao material de apoio',
-                    'Certificado de participação exclusivo',
-                    'Bônus: Calculadora de Mapa Pessoal',
-                    'Incluso hospedagem completa no local'
-                  ].map((benefit, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-amber-400" />
-                      <span className="text-white/80">{benefit}</span>
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-black py-12">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+                <div class="flex items-center gap-2">
+                    <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-400 text-neutral-950">
+                        <i data-lucide="star" class="h-5 w-5 fill-neutral-950"></i>
                     </div>
-                  ))}
+                    <span class="text-xl font-bold tracking-tight uppercase">NUMEROLOGIA DAS ESTRELAS</span>
                 </div>
-              </div>
-
-              <div className="rounded-[2.5rem] border border-white/10 bg-white/5 p-10 text-center backdrop-blur-md shadow-2xl">
-                <span className="text-sm font-bold uppercase tracking-[0.2em] text-white/50">Valor Especial de Lançamento</span>
-                <div className="mt-8">
-                  <span className="text-2xl font-medium text-white/40 line-through decoration-red-500/50 decoration-2">R$ 4.999,99</span>
-                  <div className="mt-2 text-7xl font-black text-amber-400 tracking-tighter">R$ 3.000,00</div>
-                  <p className="mt-4 text-xl font-medium text-amber-200">ou 12x no cartão com taxas</p>
-                </div>
-
-                <a
-                  href="#"
-                  className="mt-12 group relative flex items-center justify-center gap-3 overflow-hidden rounded-2xl bg-amber-400 py-6 text-xl font-black text-neutral-950 shadow-xl shadow-amber-400/20 transition hover:scale-[1.02] hover:bg-amber-300 active:scale-95"
-                >
-                  GARANTIR MINHA VAGA AGORA
-                  <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
-                </a>
-                
-                <p className="mt-8 flex items-center justify-center gap-2 text-sm text-white/40">
-                  <Lock className="h-4 w-4" />
-                  Pagamento 100% Seguro • 7 Dias de Garantia
+                <p class="text-sm text-white/30 italic">
+                    Seu nome não é por acaso. Sua data não é coincidência.
                 </p>
-              </div>
+                <p class="text-xs text-white/20">
+                    © 2026 • Todos os direitos reservados.
+                </p>
             </div>
-          </div>
         </div>
-      </section>
+    </footer>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 bg-black py-12">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-            <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-400 text-neutral-950">
-                <Star className="h-5 w-5 fill-neutral-950" />
-              </div>
-              <span className="text-xl font-bold tracking-tight">NUMEROLOGIA DAS ESTRELAS</span>
-            </div>
-            <p className="text-sm text-white/30 italic">
-              Seu nome não é por acaso. Sua data não é coincidência.
-            </p>
-            <p className="text-xs text-white/20">
-              © 2026 • Todos os direitos reservados.
-            </p>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-};
+    <script>
+        // Inicializar Lucide Icons
+        lucide.createIcons();
 
-export default App;
+        // Comportamento do Cabeçalho (Navbar) ao fazer scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-neutral-950/80', 'border-b', 'border-white/10', 'backdrop-blur-md', 'py-3');
+                navbar.classList.remove('bg-transparent', 'py-5');
+            } else {
+                navbar.classList.remove('bg-neutral-950/80', 'border-b', 'border-white/10', 'backdrop-blur-md', 'py-3');
+                navbar.classList.add('bg-transparent', 'py-5');
+            }
+        });
+
+        // Menu Mobile Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+            } else {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons(); // Re-renderizar ícone alterado
+        });
+
+        // Fechar menu mobile ao clicar em um link
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        // Animação suave de entrada (Hero)
+        window.addEventListener('load', () => {
+            const hero = document.getElementById('hero-content');
+            hero.classList.remove('opacity-0', 'translate-y-4');
+        });
+    </script>
+</body>
+</html>
