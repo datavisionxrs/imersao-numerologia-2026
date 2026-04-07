@@ -50,8 +50,8 @@
             </div>
 
             <div class="hidden items-center gap-8 md:flex">
+                <a href="#mentor" class="text-sm font-medium text-white/70 transition hover:text-white">O Mentor</a>
                 <a href="#programacao" class="text-sm font-medium text-white/70 transition hover:text-white">Programação</a>
-                <a href="#mentor" class="text-sm font-medium text-white/70 transition hover:text-white">Mentor</a>
                 <a href="#oferta" class="rounded-full bg-amber-400 px-5 py-2.5 text-sm font-bold text-neutral-950 transition hover:scale-105 active:scale-95">Reservar Vaga</a>
             </div>
 
@@ -62,8 +62,8 @@
 
         <div id="mobile-menu" class="hidden absolute top-full left-0 w-full border-b border-white/10 bg-neutral-950/95 p-6 backdrop-blur-xl md:hidden">
             <div class="flex flex-col gap-6">
+                <a href="#mentor" class="text-lg font-medium mobile-link">O Mentor</a>
                 <a href="#programacao" class="text-lg font-medium mobile-link">Programação</a>
-                <a href="#mentor" class="text-lg font-medium mobile-link">Mentor</a>
                 <a href="#oferta" class="rounded-xl bg-amber-400 py-4 text-center font-bold text-neutral-950 mobile-link">Reservar Agora</a>
             </div>
         </div>
@@ -132,6 +132,60 @@
         </div>
     </section>
 
+    <!-- Seção Mentor (Apresentação e Fotos) -->
+    <section class="py-24 bg-white/5" id="mentor">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="grid gap-16 lg:grid-cols-[1fr_1.2fr] items-center">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-amber-400/80">O Mentor das Estrelas</span>
+                    <h3 class="mt-6 text-4xl font-bold md:text-5xl leading-tight text-white uppercase">Domine seu destino com Oscar Ahumada</h3>
+                    <p class="mt-8 text-xl leading-relaxed text-white/70">
+                        Com mais de <span class="font-bold text-white">30 anos de prática</span>, Oscar Ahumada tornou-se a maior referência em numerologia, guiando celebridades, empresários e milhares de alunos ao redor do mundo.
+                    </p>
+                    <p class="mt-4 text-white/60 leading-relaxed">
+                        Sua autoridade e precisão o levaram aos palcos dos principais programas de TV do Brasil, onde compartilhou seus conhecimentos em programas como <span class="text-white font-semibold">Encontro com Fátima Bernardes</span>, <span class="text-white font-semibold">Mais Você com Ana Maria Braga</span>, <span class="text-white font-semibold">Programa do Jô</span> e <span class="text-white font-semibold">Amaury Jr.</span>.
+                    </p>
+                    
+                    <div class="mt-12 space-y-6">
+                        <div class="flex items-center gap-4">
+                            <i data-lucide="check-circle-2" class="h-6 w-6 text-amber-400"></i>
+                            <span class="text-lg text-white/80">Atendimentos exclusivos para grandes celebridades</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i data-lucide="tv-2" class="h-6 w-6 text-amber-400"></i>
+                            <span class="text-lg text-white/80">Destaque na mídia nacional (Globo, SBT, Record)</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i data-lucide="check-circle-2" class="h-6 w-6 text-amber-400"></i>
+                            <span class="text-lg text-white/80">Metodologia prática e livre de misticismos vazios</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i data-lucide="check-circle-2" class="h-6 w-6 text-amber-400"></i>
+                            <span class="text-lg text-white/80">Foco em resultados e clareza de vida</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
+                            <img src="https://s03.video.glbimg.com/x216/5545574.jpg" alt="Oscar Ahumada na TV" class="h-full w-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="aspect-square overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
+                            <img src="https://i.vimeocdn.com/video/432482891-53e342322ab4648f2b4e130c8f87e620eec35a6916aadf063bb35517112597f6-d?f=webp" alt="Oscar Ahumada Palestrante" class="h-full w-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                    </div>
+                    <div class="flex items-center pt-8">
+                        <div class="w-full aspect-[3/4] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
+                            <img src="https://s2.glbimg.com/wRPnMM2E1Xju_Whwzct4lHAQWajcnAJvzHC4bzyzZdt5bwYh05jWz364WheUHDaZ/s.glbimg.com/et/pr/f/original/2013/03/06/numerologo.jpg" alt="Oscar Ahumada Entrevista" class="h-full w-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                    </div>
+                    <div class="absolute -right-4 -bottom-4 -z-10 h-1/2 w-1/2 rounded-full bg-amber-400/20 blur-3xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Programação Detalhada -->
     <section class="py-24 relative" id="programacao">
         <div class="mx-auto max-w-7xl px-6">
@@ -152,26 +206,26 @@
                             <span class="text-amber-400/60 font-mono text-sm pt-1">14:00</span>
                             <div>
                                 <p class="font-bold text-white uppercase text-sm tracking-wide">Check-in</p>
-                                <p class="text-white/60 text-sm">Boas-vindas e acomodação nas suítes.</p>
+                                <p class="text-white/60 text-sm">Boas-vindas e acomodação nas suítes confortáveis.</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
                             <span class="text-amber-400/60 font-mono text-sm pt-1">17:00</span>
                             <div>
-                                <p class="font-bold text-white uppercase text-sm tracking-wide">Palestra de Abertura</p>
-                                <p class="text-white/60 text-sm">Fundamentos e busca do autoconhecimento (Até 20:00).</p>
+                                <p class="font-bold text-white uppercase text-sm tracking-wide">Boas-vindas e Palestra</p>
+                                <p class="text-white/60 text-sm">Numerologia e ensinamentos dos fundamentos em busca do autoconhecimento (Até 20:00).</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
                             <i data-lucide="flame" class="h-4 w-4 text-orange-500 shrink-0 mt-1"></i>
                             <div>
-                                <p class="font-bold text-white uppercase text-sm tracking-wide">Evento Especial</p>
-                                <p class="text-white/60 text-sm">Fogueira e conexão energética noturna.</p>
+                                <p class="font-bold text-white uppercase text-sm tracking-wide">Fogueira</p>
+                                <p class="text-white/60 text-sm">Momento de conexão energética na área externa.</p>
                             </div>
                         </div>
                         <div class="mt-6 pt-6 border-t border-white/5">
-                            <p class="text-xs font-bold text-amber-400/80 uppercase mb-2">Jantar Light</p>
-                            <p class="text-sm text-white/70">Saladas, carnes grelhadas e seleção de vinhos (Branco/Tinto) e Espumantes.</p>
+                            <p class="text-xs font-bold text-amber-400/80 uppercase mb-2">Jantar Light (20:00)</p>
+                            <p class="text-sm text-white/70">Saladas, carnes grelhadas e vinhos Branco/Tinto e Espumantes inclusos.</p>
                         </div>
                     </div>
                 </div>
@@ -186,46 +240,46 @@
                     <div class="space-y-5">
                         <div class="flex gap-4">
                             <span class="text-amber-400/60 font-mono text-sm">08:00</span>
-                            <p class="font-bold text-white text-sm uppercase">Café da Manhã</p>
+                            <p class="font-bold text-white text-sm uppercase tracking-wide">Café da Manhã (Até 08:40)</p>
                         </div>
                         <div class="flex gap-4">
                             <span class="text-amber-400/60 font-mono text-sm pt-1">09:00</span>
                             <div>
                                 <p class="font-bold text-white uppercase text-sm tracking-wide">Desbloqueio de Números</p>
-                                <p class="text-white/60 text-sm">Ferramentas de autoconhecimento e entrega de E-book virtual (Até 12:00).</p>
+                                <p class="text-white/60 text-sm">Apresentação da Numerologia e ensinamentos práticos (Até 12:00).</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
                             <span class="text-amber-400/60 font-mono text-sm pt-1">12:00</span>
                             <div class="bg-amber-400/10 p-3 rounded-xl border border-amber-400/20">
                                 <p class="font-bold text-amber-400 uppercase text-xs mb-1">Almoço por Oscar Ahumada</p>
-                                <p class="text-white/80 text-sm">Peixe assado ao forno, purê de batatas com molho de alcaparras e saladas.</p>
+                                <p class="text-white/80 text-sm">Peixe assado ao forno com purê de batatas, molho de alcaparras e saladas.</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
                             <span class="text-amber-400/60 font-mono text-sm pt-1">14:30</span>
                             <div>
                                 <p class="font-bold text-white uppercase text-sm tracking-wide">Espelhamento Energético</p>
-                                <p class="text-white/60 text-sm">Técnicas, ensinamentos e práticas guiadas.</p>
+                                <p class="text-white/60 text-sm">Técnicas, ensinamentos e práticas energéticas.</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
                             <span class="text-amber-400/60 font-mono text-sm pt-1">16:30</span>
                             <div>
                                 <p class="font-bold text-white uppercase text-sm tracking-wide">Aula de Grafologia</p>
-                                <p class="text-white/60 text-sm">Análise de escritas e assinaturas.</p>
+                                <p class="text-white/60 text-sm">Como analisar escritas e assinaturas pessoais.</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
                             <span class="text-amber-400/60 font-mono text-sm pt-1">18:00</span>
                             <div>
                                 <p class="font-bold text-white uppercase text-sm tracking-wide">Numerologia da Casa</p>
-                                <p class="text-white/60 text-sm">Como mudar a energia e os números do seu lar.</p>
+                                <p class="text-white/60 text-sm">Como analisar e mudar os números da sua residência.</p>
                             </div>
                         </div>
-                        <div class="mt-4 pt-4 border-t border-white/5">
-                            <p class="text-xs font-bold text-amber-400/80 uppercase mb-1">Jantar Noturno (20:00)</p>
-                            <p class="text-sm text-white/70">Pizzas, saladas e vinhos Branco/Tinto.</p>
+                        <div class="mt-4 pt-4 border-t border-white/5 text-sm text-white/70">
+                            <p class="font-bold text-amber-400/80 uppercase text-xs mb-1">Jantar Pizzas e Saladas (20:00)</p>
+                            <p>Vinhos Branco e Tinto disponíveis na casa.</p>
                         </div>
                     </div>
                 </div>
@@ -239,30 +293,30 @@
                     <div class="space-y-6">
                         <div class="flex gap-4">
                             <span class="text-amber-400/60 font-mono text-sm">08:00</span>
-                            <p class="font-bold text-white text-sm uppercase">Café da Manhã</p>
+                            <p class="font-bold text-white text-sm uppercase tracking-wide">Café da Manhã (Até 08:40)</p>
                         </div>
                         <div class="flex gap-4">
                             <span class="text-amber-400/60 font-mono text-sm pt-1">08:40</span>
                             <div>
                                 <p class="font-bold text-white uppercase text-sm tracking-wide">Atendimentos VIP</p>
-                                <p class="text-white/60 text-sm">Personalizado com Oscar + Cálculos e diagnósticos para familiares.</p>
+                                <p class="text-white/60 text-sm">Atendimento personalizado por Oscar Ahumada + Cálculos de 3 familiares.</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
                             <span class="text-amber-400/60 font-mono text-sm pt-1">12:30</span>
                             <div class="bg-white/5 p-3 rounded-xl border border-white/10">
                                 <p class="font-bold text-white uppercase text-xs mb-1">Almoço Especial</p>
-                                <p class="text-white/70 text-sm">Churrasco completo com saladas, arroz e purê de batatas.</p>
+                                <p class="text-white/70 text-sm">Churrasco completo, arroz, saladas e purê de batatas.</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
                             <span class="text-amber-400/60 font-mono text-sm pt-1">14:30</span>
                             <div>
                                 <p class="font-bold text-white uppercase text-sm tracking-wide">Encerramento</p>
-                                <p class="text-white/60 text-sm">Entrega de certificados e despedida oficial.</p>
+                                <p class="text-white/60 text-sm">Entrega de certificados oficiais da imersão.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4">
+                        <div class="flex gap-4 pt-4 border-t border-white/5">
                             <span class="text-amber-400/60 font-mono text-sm">16:00</span>
                             <p class="font-bold text-white text-sm uppercase">Checkout Final</p>
                         </div>
@@ -289,7 +343,7 @@
                                 <div>
                                     <h4 class="font-bold text-white text-lg">A Casa e Acomodações</h4>
                                     <p class="text-white/60 mt-2 text-sm leading-relaxed">
-                                        Espaço confortável para 6 pessoas com <span class="text-white font-semibold">Cama de Casal</span>. Casa equipada com estacionamento privativo, piscina, área específica para eventos e área de lazer completa.
+                                        Espaço confortável para 6 pessoas com <span class="text-white font-semibold">Cama de Casal</span>. Casa equipada com estacionamento privativo, piscina, área específica para o evento e fogueira na sexta-feira.
                                     </p>
                                 </div>
                             </div>
@@ -297,9 +351,9 @@
                             <div class="flex items-start gap-4 rounded-2xl bg-white/5 p-6 border border-white/5">
                                 <i data-lucide="utensils" class="h-6 w-6 text-amber-400 shrink-0"></i>
                                 <div>
-                                    <h4 class="font-bold text-white text-lg">Gastronomia por Oscar Ahumada</h4>
+                                    <h4 class="font-bold text-white text-lg">Hospedagem e Alimentação</h4>
                                     <p class="text-white/60 mt-2 text-sm leading-relaxed">
-                                        Experiência gastronômica única em todas as refeições: Café da manhã completo (08:00 - 08:40), Almoço elaborado pelo mentor, café da tarde e jantares harmonizados.
+                                        Café da manhã (Sábado/Domingo às 08:00), almoço elaborado numa experiência única por Oscar Ahumada, café da tarde e jantares inclusos com vinhos e espumantes.
                                     </p>
                                 </div>
                             </div>
@@ -312,15 +366,15 @@
                             </div>
                             <div class="flex items-center gap-3 text-white/80">
                                 <i data-lucide="book-open" class="h-5 w-5 text-amber-400"></i>
-                                <span class="text-sm">Material em E-book Virtual</span>
+                                <span class="text-sm">E-book Virtual de Ensino</span>
                             </div>
                             <div class="flex items-center gap-3 text-white/80">
                                 <i data-lucide="calculator" class="h-5 w-5 text-amber-400"></i>
                                 <span class="text-sm">Bônus: Calculadora de Mapa</span>
                             </div>
                             <div class="flex items-center gap-3 text-white/80">
-                                <i data-lucide="infinity" class="h-5 w-5 text-amber-400"></i>
-                                <span class="text-sm">Acesso Vitalício ao Suporte</span>
+                                <i data-lucide="monitor" class="h-5 w-5 text-amber-400"></i>
+                                <span class="text-sm">Material de Apoio Digital</span>
                             </div>
                         </div>
                     </div>
@@ -355,7 +409,7 @@
                         
                         <p class="mt-8 flex items-center justify-center gap-2 text-xs text-white/40 uppercase font-bold tracking-widest">
                             <i data-lucide="shield-check" class="h-4 w-4"></i>
-                            Experiência 100% Exclusiva
+                            Segurança e Exclusividade Total
                         </p>
                     </div>
                 </div>
@@ -375,7 +429,7 @@
                 </div>
                 <div class="flex flex-col md:items-end text-sm text-white/30 italic">
                     <p>Novo Hamburgo • RS</p>
-                    <p>Maio de 2026</p>
+                    <p>01 a 03 de Maio • 2026</p>
                 </div>
             </div>
             <p class="mt-12 text-center text-[10px] text-white/10 uppercase tracking-widest">© 2026 • Todos os direitos reservados • Oscar Ahumada</p>
