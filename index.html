@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Numerologia das Estrelas | Imersão Exclusiva</title>
+    <title>Numerologia com Oscar Ahumada em Novo Hamburgo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -14,32 +14,27 @@
             background-color: #0a0a0a;
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
         .amber-gradient-text {
             background: linear-gradient(to right, #fde68a, #f59e0b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
+        .schedule-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
         }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a;
+
+        .schedule-card:hover {
+            border-color: rgba(251, 191, 36, 0.3);
+            background: rgba(255, 255, 255, 0.05);
         }
-        ::-webkit-scrollbar-thumb {
-            background: #262626;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #fbbf24;
-        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #262626; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #fbbf24; }
     </style>
 </head>
 <body class="text-white selection:bg-amber-400/30 selection:text-amber-200">
@@ -48,31 +43,28 @@
     <nav id="navbar" class="fixed top-0 z-50 w-full transition-all duration-300 py-5">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-6">
             <div class="flex items-center gap-2">
-                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-400 to-fuchsia-600 shadow-lg shadow-amber-500/20">
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-400 to-fuchsia-600 shadow-lg">
                     <i data-lucide="star" class="h-6 w-6 text-neutral-950 fill-neutral-950"></i>
                 </div>
                 <span class="text-xl font-bold tracking-tight uppercase">Numerologia <span class="text-amber-400 text-xs align-top">★</span></span>
             </div>
 
-            <!-- Desktop Nav -->
             <div class="hidden items-center gap-8 md:flex">
-                <a href="#conteudo" class="text-sm font-medium text-white/70 transition hover:text-white">Conteúdo</a>
+                <a href="#programacao" class="text-sm font-medium text-white/70 transition hover:text-white">Programação</a>
                 <a href="#mentor" class="text-sm font-medium text-white/70 transition hover:text-white">Mentor</a>
                 <a href="#oferta" class="rounded-full bg-amber-400 px-5 py-2.5 text-sm font-bold text-neutral-950 transition hover:scale-105 active:scale-95">Reservar Vaga</a>
             </div>
 
-            <!-- Mobile Menu Toggle -->
             <button class="md:hidden p-2" id="menu-toggle">
                 <i data-lucide="menu" id="menu-icon"></i>
             </button>
         </div>
 
-        <!-- Mobile Nav Menu -->
         <div id="mobile-menu" class="hidden absolute top-full left-0 w-full border-b border-white/10 bg-neutral-950/95 p-6 backdrop-blur-xl md:hidden">
             <div class="flex flex-col gap-6">
-                <a href="#conteudo" class="text-lg font-medium mobile-link">Conteúdo</a>
+                <a href="#programacao" class="text-lg font-medium mobile-link">Programação</a>
                 <a href="#mentor" class="text-lg font-medium mobile-link">Mentor</a>
-                <a href="#oferta" class="rounded-xl bg-amber-400 py-4 text-center font-bold text-neutral-950 mobile-link">Quero Participar</a>
+                <a href="#oferta" class="rounded-xl bg-amber-400 py-4 text-center font-bold text-neutral-950 mobile-link">Reservar Agora</a>
             </div>
         </div>
     </nav>
@@ -80,30 +72,29 @@
     <!-- Hero Section -->
     <section class="relative overflow-hidden pt-32 pb-20 md:pt-48 md:pb-32">
         <div class="absolute inset-0 -z-10">
-            <div class="absolute left-[-10%] top-[-10%] h-[500px] w-[500px] rounded-full bg-fuchsia-600/20 blur-[120px]"></div>
+            <div class="absolute left-[-10%] top-[-10%] h-[500px] w-[500px] rounded-full bg-fuchsia-600/10 blur-[120px]"></div>
             <div class="absolute right-[-5%] top-[10%] h-[400px] w-[400px] rounded-full bg-amber-500/10 blur-[100px]"></div>
-            <div class="absolute bottom-[-10%] left-[20%] h-[600px] w-[600px] rounded-full bg-violet-600/10 blur-[130px]"></div>
         </div>
 
         <div class="mx-auto max-w-7xl px-6">
             <div class="grid items-center gap-16 lg:grid-cols-2">
                 <div class="opacity-0 translate-y-4 transition-all duration-700 ease-out" id="hero-content">
                     <div class="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm font-medium text-amber-200">
-                        <i data-lucide="star" class="h-4 w-4 fill-amber-200"></i>
-                        Imersão Exclusiva • Numerologia das Estrelas
+                        <i data-lucide="users" class="h-4 w-4"></i>
+                        IMERSÃO EXCLUSIVA PARA APENAS 6 PESSOAS
                     </div>
 
-                    <h1 class="mt-8 text-5xl font-bold leading-[1.1] tracking-tight md:text-7xl">
-                        Existe um padrão <span class="amber-gradient-text">invisível</span> guiando a sua vida.
+                    <h1 class="mt-8 text-4xl font-black leading-[1.1] tracking-tight md:text-6xl uppercase">
+                        NUMEROLOGIA COM <span class="amber-gradient-text">OSCAR AHUMADA</span> EM NOVO HAMBURGO
                     </h1>
 
                     <p class="mt-8 max-w-xl text-lg leading-relaxed text-white/70 md:text-xl">
-                        Descubra como alinhar <span class="font-semibold text-white">nome, data e escolhas</span> para sair do automático e tomar decisões com clareza absoluta.
+                        Uma jornada profunda de autoconhecimento, renascimento e ferramentas práticas para desbloquear o seu potencial. <span class="text-white font-semibold">Tudo incluído em uma experiência de luxo.</span>
                     </p>
 
                     <div class="mt-10 flex flex-col gap-4 sm:flex-row">
-                        <a href="#oferta" class="group flex items-center justify-center gap-2 rounded-2xl bg-amber-400 px-8 py-4 text-center text-lg font-bold text-neutral-950 shadow-xl shadow-amber-400/10 transition-all hover:scale-[1.03] hover:shadow-amber-400/20 active:scale-95">
-                            Quero Participar da Imersão
+                        <a href="#oferta" class="group flex items-center justify-center gap-3 rounded-2xl bg-amber-400 px-8 py-4 text-lg font-bold text-neutral-950 shadow-xl shadow-amber-400/10 transition-all hover:scale-[1.03] active:scale-95">
+                            Quero Ser um dos 6 Participantes
                             <i data-lucide="arrow-right" class="h-5 w-5 transition-transform group-hover:translate-x-1"></i>
                         </a>
                     </div>
@@ -112,173 +103,259 @@
                 <div class="relative">
                     <div class="relative mx-auto max-w-[480px] rounded-[2.5rem] border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-sm">
                         <div class="overflow-hidden rounded-[1.8rem] border border-amber-400/20 bg-gradient-to-b from-neutral-900 to-neutral-950 p-8">
-                            <div class="mb-10">
-                                <p class="text-xs font-bold uppercase tracking-[0.2em] text-amber-400/60">Conteúdo Programático</p>
-                                <h2 class="mt-2 text-2xl font-bold">O Que Vamos Explorar</h2>
-                            </div>
-
-                            <div class="space-y-4">
-                                <div class="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/5 p-4">
-                                    <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-400/20 text-amber-400">
-                                        <i data-lucide="check-circle-2" class="h-5 w-5"></i>
-                                    </div>
-                                    <span class="text-sm font-medium text-white/80">Seu mapa numerológico essencial</span>
+                            <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-amber-400/60">O Que Vamos Explorar</h2>
+                            
+                            <div class="mt-8 space-y-4">
+                                <div class="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/5 p-4 transition hover:bg-white/10">
+                                    <i data-lucide="map" class="h-5 w-5 text-amber-400"></i>
+                                    <span class="text-sm font-medium text-white/80">Seu mapa numerológico pessoal</span>
                                 </div>
-                                <div class="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/5 p-4">
-                                    <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-400/20 text-amber-400">
-                                        <i data-lucide="check-circle-2" class="h-5 w-5"></i>
-                                    </div>
-                                    <span class="text-sm font-medium text-white/80">Padrões recorrentes na sua vida</span>
+                                <div class="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/5 p-4 transition hover:bg-white/10">
+                                    <i data-lucide="refresh-cw" class="h-5 w-5 text-amber-400"></i>
+                                    <span class="text-sm font-medium text-white/80">Padrões recorrentes e renascimento</span>
                                 </div>
-                                <div class="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/5 p-4">
-                                    <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-400/20 text-amber-400">
-                                        <i data-lucide="check-circle-2" class="h-5 w-5"></i>
-                                    </div>
+                                <div class="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/5 p-4 transition hover:bg-white/10">
+                                    <i data-lucide="unlock" class="h-5 w-5 text-amber-400"></i>
                                     <span class="text-sm font-medium text-white/80">Bloqueios que te impedem de crescer</span>
                                 </div>
-                                <div class="group flex items-center gap-4 rounded-2xl border border-white/5 bg-white/5 p-4">
-                                    <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-400/20 text-amber-400">
-                                        <i data-lucide="check-circle-2" class="h-5 w-5"></i>
-                                    </div>
+                                <div class="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/5 p-4 transition hover:bg-white/10">
+                                    <i data-lucide="zap" class="h-5 w-5 text-amber-400"></i>
                                     <span class="text-sm font-medium text-white/80">O momento certo para agir</span>
                                 </div>
                             </div>
+                            
+                            <p class="mt-8 text-center text-xs text-white/40 italic">Inspirada nos fundamentos da numerologia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                            <div class="mt-8 rounded-2xl border border-fuchsia-400/20 bg-fuchsia-500/10 p-5 text-sm leading-relaxed text-white/70">
-                                Inspirada nos fundamentos da numerologia que tornaram <span class="font-bold text-white">Oscar Ahumada</span> uma referência internacional.
+    <!-- Programação Detalhada -->
+    <section class="py-24 relative" id="programacao">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold uppercase tracking-[0.3em] text-amber-400/80">Roteiro da Jornada</span>
+                <h3 class="mt-4 text-4xl font-bold">Programação Completa</h3>
+            </div>
+
+            <div class="grid gap-8 lg:grid-cols-3">
+                <!-- Sexta-feira -->
+                <div class="schedule-card rounded-[2.5rem] p-8">
+                    <div class="flex items-center justify-between mb-8">
+                        <h4 class="text-2xl font-bold text-amber-400">Sexta-feira</h4>
+                        <span class="text-xs font-bold bg-white/10 px-3 py-1 rounded-full text-white/60 uppercase">Dia 01/05</span>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <span class="text-amber-400/60 font-mono text-sm pt-1">14:00</span>
+                            <div>
+                                <p class="font-bold text-white uppercase text-sm tracking-wide">Check-in</p>
+                                <p class="text-white/60 text-sm">Boas-vindas e acomodação nas suítes.</p>
                             </div>
                         </div>
+                        <div class="flex gap-4">
+                            <span class="text-amber-400/60 font-mono text-sm pt-1">17:00</span>
+                            <div>
+                                <p class="font-bold text-white uppercase text-sm tracking-wide">Palestra de Abertura</p>
+                                <p class="text-white/60 text-sm">Fundamentos e busca do autoconhecimento (Até 20:00).</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i data-lucide="flame" class="h-4 w-4 text-orange-500 shrink-0 mt-1"></i>
+                            <div>
+                                <p class="font-bold text-white uppercase text-sm tracking-wide">Evento Especial</p>
+                                <p class="text-white/60 text-sm">Fogueira e conexão energética noturna.</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-6 border-t border-white/5">
+                            <p class="text-xs font-bold text-amber-400/80 uppercase mb-2">Jantar Light</p>
+                            <p class="text-sm text-white/70">Saladas, carnes grelhadas e seleção de vinhos (Branco/Tinto) e Espumantes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sábado -->
+                <div class="schedule-card rounded-[2.5rem] p-8 border-amber-400/20 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 h-24 w-24 bg-amber-400/5 blur-2xl"></div>
+                    <div class="flex items-center justify-between mb-8">
+                        <h4 class="text-2xl font-bold text-amber-400">Sábado</h4>
+                        <span class="text-xs font-bold bg-white/10 px-3 py-1 rounded-full text-white/60 uppercase">Dia 02/05</span>
+                    </div>
+                    <div class="space-y-5">
+                        <div class="flex gap-4">
+                            <span class="text-amber-400/60 font-mono text-sm">08:00</span>
+                            <p class="font-bold text-white text-sm uppercase">Café da Manhã</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-amber-400/60 font-mono text-sm pt-1">09:00</span>
+                            <div>
+                                <p class="font-bold text-white uppercase text-sm tracking-wide">Desbloqueio de Números</p>
+                                <p class="text-white/60 text-sm">Ferramentas de autoconhecimento e entrega de E-book virtual (Até 12:00).</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-amber-400/60 font-mono text-sm pt-1">12:00</span>
+                            <div class="bg-amber-400/10 p-3 rounded-xl border border-amber-400/20">
+                                <p class="font-bold text-amber-400 uppercase text-xs mb-1">Almoço por Oscar Ahumada</p>
+                                <p class="text-white/80 text-sm">Peixe assado ao forno, purê de batatas com molho de alcaparras e saladas.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-amber-400/60 font-mono text-sm pt-1">14:30</span>
+                            <div>
+                                <p class="font-bold text-white uppercase text-sm tracking-wide">Espelhamento Energético</p>
+                                <p class="text-white/60 text-sm">Técnicas, ensinamentos e práticas guiadas.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-amber-400/60 font-mono text-sm pt-1">16:30</span>
+                            <div>
+                                <p class="font-bold text-white uppercase text-sm tracking-wide">Aula de Grafologia</p>
+                                <p class="text-white/60 text-sm">Análise de escritas e assinaturas.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-amber-400/60 font-mono text-sm pt-1">18:00</span>
+                            <div>
+                                <p class="font-bold text-white uppercase text-sm tracking-wide">Numerologia da Casa</p>
+                                <p class="text-white/60 text-sm">Como mudar a energia e os números do seu lar.</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5">
+                            <p class="text-xs font-bold text-amber-400/80 uppercase mb-1">Jantar Noturno (20:00)</p>
+                            <p class="text-sm text-white/70">Pizzas, saladas e vinhos Branco/Tinto.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domingo -->
+                <div class="schedule-card rounded-[2.5rem] p-8">
+                    <div class="flex items-center justify-between mb-8">
+                        <h4 class="text-2xl font-bold text-amber-400">Domingo</h4>
+                        <span class="text-xs font-bold bg-white/10 px-3 py-1 rounded-full text-white/60 uppercase">Dia 03/05</span>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <span class="text-amber-400/60 font-mono text-sm">08:00</span>
+                            <p class="font-bold text-white text-sm uppercase">Café da Manhã</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-amber-400/60 font-mono text-sm pt-1">08:40</span>
+                            <div>
+                                <p class="font-bold text-white uppercase text-sm tracking-wide">Atendimentos VIP</p>
+                                <p class="text-white/60 text-sm">Personalizado com Oscar + Cálculos e diagnósticos para familiares.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-amber-400/60 font-mono text-sm pt-1">12:30</span>
+                            <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+                                <p class="font-bold text-white uppercase text-xs mb-1">Almoço Especial</p>
+                                <p class="text-white/70 text-sm">Churrasco completo com saladas, arroz e purê de batatas.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-amber-400/60 font-mono text-sm pt-1">14:30</span>
+                            <div>
+                                <p class="font-bold text-white uppercase text-sm tracking-wide">Encerramento</p>
+                                <p class="text-white/60 text-sm">Entrega de certificados e despedida oficial.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-amber-400/60 font-mono text-sm">16:00</span>
+                            <p class="font-bold text-white text-sm uppercase">Checkout Final</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mentor Section -->
-    <section class="py-24 bg-white/5" id="mentor">
-        <div class="mx-auto max-w-7xl px-6">
-            <div class="grid gap-16 lg:grid-cols-[1fr_1.2fr] items-center">
-                <div>
-                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-amber-400/80">O Mentor das Estrelas</span>
-                    <h3 class="mt-6 text-4xl font-bold md:text-5xl leading-tight text-white">Domine seu destino com Oscar Ahumada</h3>
-                    <p class="mt-8 text-xl leading-relaxed text-white/70">
-                        Com mais de <span class="font-bold text-white">30 anos de prática</span>, Oscar Ahumada tornou-se a maior referência em numerologia, guiando celebridades, empresários e milhares de alunos ao redor do mundo.
-                    </p>
-                    
-                    <div class="mt-12 space-y-6">
-                        <div class="flex items-center gap-4">
-                            <i data-lucide="check-circle-2" class="h-6 w-6 text-amber-400"></i>
-                            <span class="text-lg text-white/80">Atendimentos exclusivos para grandes celebridades</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <i data-lucide="check-circle-2" class="h-6 w-6 text-amber-400"></i>
-                            <span class="text-lg text-white/80">Participações em programas de TV nacionais</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <i data-lucide="check-circle-2" class="h-6 w-6 text-amber-400"></i>
-                            <span class="text-lg text-white/80">Metodologia prática e livre de misticismos vazios</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <i data-lucide="check-circle-2" class="h-6 w-6 text-amber-400"></i>
-                            <span class="text-lg text-white/80">Foco em resultados e clareza de vida</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative grid grid-cols-2 gap-4">
-                    <div class="space-y-4">
-                        <div class="aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
-                            <img src="https://s03.video.glbimg.com/x216/5545574.jpg" alt="Oscar Ahumada TV" class="h-full w-full object-cover transition-transform duration-500 hover:scale-110">
-                        </div>
-                        <div class="aspect-square overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
-                            <img src="https://i.vimeocdn.com/video/432482891-53e342322ab4648f2b4e130c8f87e620eec35a6916aadf063bb35517112597f6-d?f=webp" alt="Oscar Ahumada Palestra" class="h-full w-full object-cover transition-transform duration-500 hover:scale-110">
-                        </div>
-                    </div>
-                    <div class="flex items-center pt-8">
-                        <div class="w-full aspect-[3/4] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
-                            <img src="https://s2.glbimg.com/wRPnMM2E1Xju_Whwzct4lHAQWajcnAJvzHC4bzyzZdt5bwYh05jWz364WheUHDaZ/s.glbimg.com/et/pr/f/original/2013/03/06/numerologo.jpg" alt="Oscar Ahumada Entrevista" class="h-full w-full object-cover transition-transform duration-500 hover:scale-110">
-                        </div>
-                    </div>
-                    <div class="absolute -right-4 -bottom-4 -z-10 h-1/2 w-1/2 rounded-full bg-amber-400/20 blur-3xl"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Oferta Final -->
+    <!-- Oferta e Hospedagem -->
     <section class="py-24" id="oferta">
         <div class="mx-auto max-w-7xl px-6">
             <div class="relative overflow-hidden rounded-[3rem] border border-amber-400/20 bg-neutral-900 p-8 md:p-16">
-                <div class="absolute top-0 right-0 h-64 w-64 bg-amber-400/10 blur-[80px]"></div>
+                <div class="absolute bottom-0 left-0 h-96 w-96 bg-fuchsia-600/5 blur-[100px]"></div>
                 
                 <div class="relative grid gap-16 lg:grid-cols-[1.1fr_0.9fr] items-center">
                     <div>
-                        <span class="text-xs font-bold uppercase tracking-[0.3em] text-amber-400">Investimento Exclusivo</span>
-                        <h3 class="mt-6 text-4xl font-bold md:text-6xl text-white">Sua transformação completa com hospedagem.</h3>
+                        <span class="text-xs font-bold uppercase tracking-[0.3em] text-amber-400">Transformação Completa</span>
+                        <h3 class="mt-6 text-4xl font-bold md:text-5xl text-white uppercase tracking-tight">Tudo Incluído em Novo Hamburgo</h3>
                         
-                        <div class="mt-8 grid gap-4">
-                            <div class="flex items-start gap-4 rounded-2xl bg-white/5 p-5">
+                        <div class="mt-10 grid gap-6">
+                            <div class="flex items-start gap-4 rounded-2xl bg-white/5 p-6 border border-white/5">
                                 <i data-lucide="home" class="h-6 w-6 text-amber-400 shrink-0"></i>
                                 <div>
-                                    <h4 class="font-bold text-white text-lg">Hospedagem Inclusa</h4>
-                                    <p class="text-white/60">Fique hospedado no local do evento e aproveite a imersão total sem preocupações logísticas.</p>
+                                    <h4 class="font-bold text-white text-lg">A Casa e Acomodações</h4>
+                                    <p class="text-white/60 mt-2 text-sm leading-relaxed">
+                                        Espaço confortável para 6 pessoas com <span class="text-white font-semibold">Cama de Casal</span>. Casa equipada com estacionamento privativo, piscina, área específica para eventos e área de lazer completa.
+                                    </p>
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div class="flex items-center gap-4 rounded-2xl bg-white/5 p-4 border border-white/5">
-                                    <i data-lucide="clock" class="h-5 w-5 text-amber-400"></i>
-                                    <div>
-                                        <p class="text-xs text-white/50 uppercase font-bold tracking-wider">Check-in</p>
-                                        <p class="text-sm font-semibold">xx/xx/2026 a partir das 14:00</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-4 rounded-2xl bg-white/5 p-4 border border-white/5">
-                                    <i data-lucide="clock" class="h-5 w-5 text-amber-400"></i>
-                                    <div>
-                                        <p class="text-xs text-white/50 uppercase font-bold tracking-wider">Checkout</p>
-                                        <p class="text-sm font-semibold">xx/xx/2026 até as 14:00</p>
-                                    </div>
+                            <div class="flex items-start gap-4 rounded-2xl bg-white/5 p-6 border border-white/5">
+                                <i data-lucide="utensils" class="h-6 w-6 text-amber-400 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold text-white text-lg">Gastronomia por Oscar Ahumada</h4>
+                                    <p class="text-white/60 mt-2 text-sm leading-relaxed">
+                                        Experiência gastronômica única em todas as refeições: Café da manhã completo (08:00 - 08:40), Almoço elaborado pelo mentor, café da tarde e jantares harmonizados.
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mt-10 space-y-4 text-white/80">
-                            <div class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="h-5 w-5 text-amber-400"></i>
-                                <span>Acesso vitalício ao material de apoio</span>
+                        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex items-center gap-3 text-white/80">
+                                <i data-lucide="award" class="h-5 w-5 text-amber-400"></i>
+                                <span class="text-sm">Certificado de Participação</span>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="h-5 w-5 text-amber-400"></i>
-                                <span>Certificado de participação exclusivo</span>
+                            <div class="flex items-center gap-3 text-white/80">
+                                <i data-lucide="book-open" class="h-5 w-5 text-amber-400"></i>
+                                <span class="text-sm">Material em E-book Virtual</span>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="h-5 w-5 text-amber-400"></i>
-                                <span>Bônus: Calculadora de Mapa Pessoal</span>
+                            <div class="flex items-center gap-3 text-white/80">
+                                <i data-lucide="calculator" class="h-5 w-5 text-amber-400"></i>
+                                <span class="text-sm">Bônus: Calculadora de Mapa</span>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="h-5 w-5 text-amber-400"></i>
-                                <span>Incluso hospedagem completa no local</span>
+                            <div class="flex items-center gap-3 text-white/80">
+                                <i data-lucide="infinity" class="h-5 w-5 text-amber-400"></i>
+                                <span class="text-sm">Acesso Vitalício ao Suporte</span>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Card de Preço -->
                     <div class="rounded-[2.5rem] border border-white/10 bg-white/5 p-10 text-center backdrop-blur-md shadow-2xl">
-                        <span class="text-sm font-bold uppercase tracking-[0.2em] text-white/50">Valor Especial de Lançamento</span>
-                        <div class="mt-8">
-                            <span class="text-2xl font-medium text-white/40 line-through decoration-red-500/50 decoration-2">R$ 4.999,99</span>
-                            <div class="mt-2 text-7xl font-black text-amber-400 tracking-tighter">R$ 3.000,00</div>
-                            <p class="mt-4 text-xl font-medium text-amber-200">ou 12x no cartão com taxas</p>
+                        <div class="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-1 text-[10px] font-bold text-amber-200 uppercase tracking-widest mb-6">
+                            Vagas Limitadas (Apenas 6)
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <span class="text-lg font-medium text-white/40 line-through decoration-red-500/50">R$ 4.999,99</span>
+                            <div class="text-7xl font-black text-amber-400 tracking-tighter">R$ 3.000,00</div>
+                            <p class="text-sm font-bold text-amber-200 uppercase tracking-widest">Investimento Único</p>
                         </div>
 
-                        <a href="#" class="mt-12 group relative flex items-center justify-center gap-3 overflow-hidden rounded-2xl bg-amber-400 py-6 text-xl font-black text-neutral-950 shadow-xl shadow-amber-400/20 transition hover:scale-[1.02] hover:bg-amber-300 active:scale-95">
-                            GARANTIR MINHA VAGA AGORA
+                        <div class="my-10 p-4 rounded-2xl bg-white/5 border border-white/10 text-left space-y-3">
+                            <div class="flex justify-between text-xs">
+                                <span class="text-white/40">Check-in:</span>
+                                <span class="font-bold">01/05/2026 - 14:00</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-white/40">Checkout:</span>
+                                <span class="font-bold">03/05/2026 - 16:00</span>
+                            </div>
+                        </div>
+
+                        <a href="#" class="group relative flex items-center justify-center gap-3 overflow-hidden rounded-2xl bg-amber-400 py-6 text-xl font-black text-neutral-950 transition hover:scale-[1.02] hover:bg-amber-300">
+                            GARANTIR MINHA VAGA
                             <i data-lucide="arrow-right" class="h-6 w-6 transition-transform group-hover:translate-x-1"></i>
                         </a>
                         
-                        <p class="mt-8 flex items-center justify-center gap-2 text-sm text-white/40">
-                            <i data-lucide="lock" class="h-4 w-4"></i>
-                            Pagamento 100% Seguro • 7 Dias de Garantia
+                        <p class="mt-8 flex items-center justify-center gap-2 text-xs text-white/40 uppercase font-bold tracking-widest">
+                            <i data-lucide="shield-check" class="h-4 w-4"></i>
+                            Experiência 100% Exclusiva
                         </p>
                     </div>
                 </div>
@@ -287,42 +364,38 @@
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-white/10 bg-black py-12">
+    <footer class="border-t border-white/10 bg-black py-16">
         <div class="mx-auto max-w-7xl px-6">
-            <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+            <div class="flex flex-col items-center justify-between gap-10 md:flex-row">
                 <div class="flex items-center gap-2">
                     <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-400 text-neutral-950">
                         <i data-lucide="star" class="h-5 w-5 fill-neutral-950"></i>
                     </div>
-                    <span class="text-xl font-bold tracking-tight uppercase">NUMEROLOGIA DAS ESTRELAS</span>
+                    <span class="text-xl font-bold tracking-tight uppercase">NUMEROLOGIA COM OSCAR AHUMADA</span>
                 </div>
-                <p class="text-sm text-white/30 italic">
-                    Seu nome não é por acaso. Sua data não é coincidência.
-                </p>
-                <p class="text-xs text-white/20">
-                    © 2026 • Todos os direitos reservados.
-                </p>
+                <div class="flex flex-col md:items-end text-sm text-white/30 italic">
+                    <p>Novo Hamburgo • RS</p>
+                    <p>Maio de 2026</p>
+                </div>
             </div>
+            <p class="mt-12 text-center text-[10px] text-white/10 uppercase tracking-widest">© 2026 • Todos os direitos reservados • Oscar Ahumada</p>
         </div>
     </footer>
 
     <script>
-        // Inicializar Lucide Icons
         lucide.createIcons();
 
-        // Comportamento do Cabeçalho (Navbar) ao fazer scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                navbar.classList.add('bg-neutral-950/80', 'border-b', 'border-white/10', 'backdrop-blur-md', 'py-3');
-                navbar.classList.remove('bg-transparent', 'py-5');
+                navbar.classList.add('bg-neutral-950/90', 'backdrop-blur-md', 'py-3');
+                navbar.classList.remove('py-5');
             } else {
-                navbar.classList.remove('bg-neutral-950/80', 'border-b', 'border-white/10', 'backdrop-blur-md', 'py-3');
-                navbar.classList.add('bg-transparent', 'py-5');
+                navbar.classList.remove('bg-neutral-950/90', 'backdrop-blur-md', 'py-3');
+                navbar.classList.add('py-5');
             }
         });
 
-        // Menu Mobile Toggle
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -336,10 +409,9 @@
                 mobileMenu.classList.remove('hidden');
                 menuIcon.setAttribute('data-lucide', 'x');
             }
-            lucide.createIcons(); // Re-renderizar ícone alterado
+            lucide.createIcons();
         });
 
-        // Fechar menu mobile ao clicar em um link
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -348,10 +420,8 @@
             });
         });
 
-        // Animação suave de entrada (Hero)
         window.addEventListener('load', () => {
-            const hero = document.getElementById('hero-content');
-            hero.classList.remove('opacity-0', 'translate-y-4');
+            document.getElementById('hero-content').classList.remove('opacity-0', 'translate-y-4');
         });
     </script>
 </body>
