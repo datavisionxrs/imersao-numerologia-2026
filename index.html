@@ -1,513 +1,504 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Users, 
-  CheckCircle2, 
-  Star, 
-  ChevronDown, 
-  Coffee, 
-  Flame, 
-  BookOpen, 
-  Award,
-  ArrowRight, 
-  ShieldCheck,
-  Smartphone,
-  Zap, 
-  Sparkles,
-  Home, 
-  PenTool,
-  MapPin,
-  Tv,
-  PlayCircle,
-  Clock,
-  Utensils,
-  AlertCircle,
-  Calculator,
-  Lock,
-  Target
-} from 'lucide-react';
-
-const App = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const HERO_IMAGE_URL = "https://oscarahumada.com.br/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-23-at-08.30.39.jpeg";
-  const MAIS_VOCE_IMAGE = "https://i.vimeocdn.com/video/432482891-53e342322ab4648f2b4e130c8f87e620eec35a6916aadf063bb35517112597f6-d_2400?region=us";
-  const ENCONTRO_IMAGE = "https://s2-gshow.glbimg.com/5mxBQF5NZUQa95GR24lTDtrrWd0=/0x0:5472x3648/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2016/X/L/u0evUOQHuZ8MsWB9rwBw/dsc01960.jpg";
-  const HOSPITALITY_IMAGE_URL = "https://oscarahumada.com.br/wp-content/uploads/2024/09/Oscar.png";
-
-  return (
-    <div className="min-h-screen bg-[#FDFBF9] text-[#1A1A1A] font-sans selection:bg-[#C5A059] selection:text-white text-left overflow-x-hidden">
-      {/* Navegação */}
-      <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-md py-4 shadow-md' : 'bg-transparent py-6'}`}>
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <div className={`text-2xl font-serif tracking-tighter transition-colors duration-300 ${isScrolled ? 'text-[#4B001D]' : 'text-white'}`}>
-            Oscar <span className="font-light italic text-[#C5A059]">Ahumada</span>
-          </div>
-          <div className={`hidden md:flex space-x-10 text-[11px] font-bold tracking-[0.2em] uppercase transition-colors ${isScrolled ? 'text-[#1A1A1A]' : 'text-white'}`}>
-            <button onClick={() => scrollToSection('acesso')} className="hover:text-[#C5A059] transition-colors">O que você acessa</button>
-            <button onClick={() => scrollToSection('experiencia')} className="hover:text-[#C5A059] transition-colors">A Experiência</button>
-            <button onClick={() => scrollToSection('programacao')} className="hover:text-[#C5A059] transition-colors">Programação</button>
-          </div>
-          <button 
-            onClick={() => scrollToSection('checkout')}
-            className="bg-[#C5A059] text-white px-8 py-3 rounded-sm text-[10px] font-bold uppercase tracking-widest hover:bg-[#4B001D] transition-all shadow-lg transform hover:-translate-y-0.5"
-          >
-            Garanta sua Vaga
-          </button>
-        </div>
-      </nav>
-
-      {/* 1. HERO SECTION DE ALTO IMPACTO */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-black text-left">
-        <div className="absolute inset-0">
-          <img 
-            src={HERO_IMAGE_URL} 
-            alt="Oscar Ahumada" 
-            className="w-full h-full object-cover object-center opacity-80"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-          <div className="absolute inset-0 bg-black/20"></div>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-10 text-white drop-shadow-2xl">
-            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-sm border border-[#C5A059] bg-[#C5A059]/20 text-[#C5A059] text-[10px] font-black tracking-[0.2em] uppercase backdrop-blur-md">
-              <Users size={14} strokeWidth={3} />
-              <span>Imersão Exclusiva para apenas 6 pessoas</span>
-            </div>
-            
-            <div className="space-y-4">
-              <p className="text-[11px] font-black uppercase tracking-[0.5em] text-[#C5A059]">Numerologia com Oscar Ahumada • Novo Hamburgo</p>
-              <h1 className="text-6xl md:text-8xl font-serif leading-[1.05] tracking-tight">
-                Você não chegou <br />até aqui <span className="italic text-[#C5A059]">por acaso.</span>
-              </h1>
-            </div>
-            
-            <div className="space-y-6 text-xl md:text-2xl text-white font-light max-w-xl border-l-2 border-[#C5A059] pl-8">
-              <p className="leading-relaxed opacity-95">
-                Existe um padrão na sua vida que se repete. Decisões que parecem certas… mas te levam ao mesmo lugar. E um chamado silencioso dentro de você pedindo mudança.
-              </p>
-              <p className="font-semibold text-[#C5A059]">
-                Passe 3 dias imerso em um ambiente preparado para revelar exatamente o que está travando sua evolução — e como desbloquear isso com precisão.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <p className="text-gray-300 font-light max-w-lg italic">
-                Uma imersão íntima conduzida por Oscar Ahumada, o Numerólogo das Estrelas. Não é palestra ou curso comum. É um processo direto de leitura, compreensão e realinhamento da sua vida.
-              </p>
-              <button 
-                onClick={() => scrollToSection('checkout')}
-                className="bg-[#C5A059] text-white px-10 py-6 rounded-sm text-xs font-bold uppercase tracking-[0.3em] hover:bg-white hover:text-[#4B001D] transition-all flex items-center justify-center space-x-3 shadow-2xl transform hover:-translate-y-1 w-full md:w-auto"
-              >
-                <span>Garantir minha vaga</span>
-                <ArrowRight size={18} />
-              </button>
-            </div>
-          </div>
-        </div>
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imersão Numerologia com Oscar Ahumada - Novo Hamburgo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Libre+Baskerville:italic,wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Libre Baskerville', serif; }
+        .bg-vinho { background-color: #4B001D; }
+        .text-vinho { color: #4B001D; }
+        .bg-dourado { background-color: #C5A059; }
+        .text-dourado { color: #C5A059; }
+        .border-dourado { border-color: #C5A059; }
+        .bg-off-white { background-color: #FDFBF9; }
         
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-100 text-[#C5A059]">
-          <ChevronDown size={40} />
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+        }
+
+        .card-shadow:hover {
+            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-off-white text-[#1A1A1A] antialiased">
+
+    <!-- Navegação -->
+    <nav class="fixed w-full z-50 py-4 glass-nav shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-serif tracking-tighter text-vinho">
+                Oscar <span class="font-light italic text-dourado">Ahumada</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-[11px] font-bold tracking-[0.2em] uppercase">
+                <a href="#acesso" class="hover:text-dourado transition-colors">Acesso</a>
+                <a href="#experiencia" class="hover:text-dourado transition-colors">Experiência</a>
+                <a href="#programacao" class="hover:text-dourado transition-colors">Programação</a>
+            </div>
+            <a href="#checkout" class="bg-dourado text-white px-6 py-2.5 rounded-sm text-[10px] font-bold uppercase tracking-widest hover:bg-vinho transition-all transform hover:-translate-y-0.5">
+                Garanta sua Vaga
+            </a>
         </div>
-      </section>
+    </nav>
 
-      {/* 2. O QUE VOCÊ VAI ACESSAR */}
-      <section id="acesso" className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
-            <div className="space-y-4 md:max-w-2xl">
-              <h2 className="text-[11px] font-black uppercase tracking-[0.5em] text-[#C5A059]">Acesso Direto</h2>
-              <h3 className="text-5xl font-serif text-[#1A1A1A]">O que você vai acessar</h3>
-              <p className="text-gray-500 text-xl font-light">Fundamentos da numerologia aplicados integralmente à sua realidade.</p>
-            </div>
-            <div className="w-24 h-1 bg-[#4B001D]"></div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: "Mapa Numerológico", desc: "Seu mapa pessoal revelado com profundidade e clareza.", icon: <BookOpen size={24} /> },
-              { title: "Quebra de Padrões", desc: "Identificação dos padrões repetitivos e como interrompê-los.", icon: <Zap size={24} /> },
-              { title: "Bloqueios Invisíveis", desc: "Revelação de travas que impedem seu crescimento real.", icon: <Lock size={24} /> },
-              { title: "Timing Estratégico", desc: "O momento certo para agir e tomar decisões seguras.", icon: <Target size={24} /> },
-              { title: "Desbloqueio Energético", desc: "Técnicas práticas para liberar sua energia pessoal.", icon: <Flame size={24} /> },
-              { title: "Fundamentos Reais", desc: "O conhecimento técnico aplicado à sua vida atual.", icon: <CheckCircle2 size={24} /> }
-            ].map((item, idx) => (
-              <div key={idx} className="p-10 border border-gray-100 bg-[#FDFBF9] hover:bg-white hover:shadow-2xl hover:border-[#C5A059]/20 transition-all duration-500 group">
-                <div className="text-[#C5A059] mb-6 transition-transform group-hover:scale-110">{item.icon}</div>
-                <h4 className="text-xl font-serif mb-4 text-[#4B001D]">{item.title}</h4>
-                <p className="text-gray-500 font-light leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+    <!-- 1. HERO SECTION -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-black">
+        <div class="absolute inset-0">
+            <img src="https://oscarahumada.com.br/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-23-at-08.30.39.jpeg" 
+                 alt="Oscar Ahumada" class="w-full h-full object-cover object-center opacity-70">
+            <div class="absolute inset-0 hero-gradient"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
         </div>
-      </section>
 
-      {/* 3. UMA EXPERIÊNCIA COMPLETA */}
-      <section id="experiencia" className="py-32 bg-[#4B001D] text-white overflow-hidden relative">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
-          <div className="relative order-2 md:order-1">
-            <img 
-              src={HOSPITALITY_IMAGE_URL} 
-              alt="Hospitalidade Oscar Ahumada" 
-              className="relative w-full h-[650px] object-cover rounded-sm shadow-2xl"
-            />
-            <div className="absolute -bottom-10 -left-10 bg-[#C5A059] p-12 shadow-2xl max-w-[320px]">
-              <p className="text-white font-serif italic text-3xl mb-4 leading-tight">Presença Real</p>
-              <p className="text-[10px] uppercase tracking-widest text-white/90 font-black">Alimentação completa preparada pelo próprio mentor.</p>
-            </div>
-          </div>
-
-          <div className="space-y-12 order-1 md:order-2">
-            <div className="space-y-6">
-              <h2 className="text-[11px] font-black uppercase tracking-[0.5em] text-[#C5A059]">Corpo, Mente e Energia</h2>
-              <h3 className="text-5xl font-serif leading-tight">Uma experiência completa</h3>
-              <p className="text-gray-300 text-xl font-light leading-relaxed">
-                Durante 3 dias, você estará totalmente imerso. Sem distrações. Sem deslocamentos. Apenas você, seu processo e sua transformação.
-              </p>
-            </div>
-
-            <div className="grid gap-10">
-              {[
-                { icon: <Home size={24} />, title: "Hospedagem Inclusa", desc: "Permanência integral no local da imersão." },
-                { icon: <Utensils size={24} />, title: "Alimentação Própria", desc: "Menu exclusivo assinado por Oscar Ahumada." },
-                { icon: <Sparkles size={24} />, title: "Ambiente Exclusivo", desc: "Casa com piscina, natureza e espaço energético." },
-                { icon: <Flame size={24} />, title: "Fogueira de Abertura", desc: "Ativação energética na noite de sexta-feira." }
-              ].map((item, idx) => (
-                <div key={idx} className="flex gap-6 group">
-                  <div className="text-[#C5A059] shrink-0 group-hover:scale-110 transition-transform">{item.icon}</div>
-                  <div className="text-left">
-                    <h5 className="font-black text-xs uppercase tracking-widest text-[#C5A059] mb-1">{item.title}</h5>
-                    <p className="text-gray-300 font-light text-sm">{item.desc}</p>
-                  </div>
+        <div class="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-10 text-white">
+                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-sm border border-dourado/30 bg-dourado/20 text-dourado text-[10px] font-black tracking-[0.2em] uppercase backdrop-blur-md">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    Imersão Exclusiva para apenas 6 pessoas
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. DETALHES DA IMERSÃO */}
-      <section className="py-24 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-[#FDFBF9] p-12 border-l-4 border-[#C5A059]">
-              <h4 className="text-2xl font-serif mb-8 text-[#4B001D]">Datas e Horários</h4>
-              <div className="space-y-6">
-                <div className="flex justify-between items-center border-b border-gray-100 pb-4">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">Check-in</span>
-                  <span className="font-serif text-lg text-[#1A1A1A]">01/05/2026 • 14:00h</span>
+                
+                <div class="space-y-4">
+                    <p class="text-[11px] font-black uppercase tracking-[0.5em] text-dourado">Numerologia com Oscar Ahumada • Novo Hamburgo</p>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.05] tracking-tight">
+                        Você não chegou <br>até aqui <span class="italic text-dourado">por acaso.</span>
+                    </h1>
                 </div>
-                <div className="flex justify-between items-center border-b border-gray-100 pb-4">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">Check-out</span>
-                  <span className="font-serif text-lg text-[#1A1A1A]">03/05/2026 • 16:00h</span>
+                
+                <div class="space-y-6 text-xl md:text-2xl text-white font-light max-w-xl border-l-2 border-dourado pl-8">
+                    <p class="leading-relaxed opacity-95">
+                        Existe um padrão na sua vida que se repete. Decisões que parecem certas… mas te levam ao mesmo lugar. E um chamado silencioso dentro de você pedindo mudança.
+                    </p>
+                    <p class="font-semibold text-dourado">
+                        Passe 3 dias imerso em um ambiente preparado para revelar exatamente o que está travando sua evolução.
+                    </p>
                 </div>
-              </div>
+
+                <div class="space-y-8">
+                    <p class="text-gray-300 font-light max-w-lg italic leading-relaxed">
+                        Uma imersão íntima conduzida por Oscar Ahumada, o Numerólogo das Estrelas. Não é palestra ou curso comum. É um processo direto de leitura e realinhamento.
+                    </p>
+                    <a href="#checkout" class="inline-flex items-center space-x-4 bg-dourado text-white px-10 py-6 rounded-sm text-xs font-bold uppercase tracking-[0.3em] hover:bg-white hover:text-vinho transition-all shadow-2xl transform hover:-translate-y-1 w-full md:w-auto justify-center">
+                        <span>Garantir minha vaga</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
             </div>
-            <div className="bg-[#FDFBF9] p-12 border-l-4 border-[#4B001D]">
-              <h4 className="text-2xl font-serif mb-8 text-[#4B001D]">Acomodação</h4>
-              <div className="space-y-4">
-                <p className="text-gray-600 font-light">Casa exclusiva em Novo Hamburgo/RS com estacionamento privativo.</p>
-                <p className="text-[#1A1A1A] font-medium flex items-center gap-2 italic">
-                  <Target size={16} className="text-[#C5A059]" />
-                  Acomodação confortável para 6 pessoas (camas de casal).
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      {/* 5. PROGRAMAÇÃO INTENSIVA E TRANSFORMADORA */}
-      <section id="programacao" className="py-32 bg-[#F9F7F5]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-24 space-y-6">
-            <h2 className="text-[11px] font-black uppercase tracking-[0.5em] text-[#C5A059]">Cronograma</h2>
-            <h3 className="text-5xl font-serif text-[#1A1A1A]">Programação Intensiva</h3>
-            <div className="w-24 h-1 bg-[#C5A059] mx-auto"></div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-0 border border-gray-100 shadow-2xl rounded-sm overflow-hidden bg-white">
-            {/* Sexta-feira */}
-            <div className="p-12 border-r border-gray-100 hover:bg-[#FDFBF9] transition-all">
-              <div className="text-[10px] font-bold uppercase tracking-widest text-[#4B001D] mb-4">DIA 01 • SEXTA-FEIRA (01/05)</div>
-              <h4 className="text-3xl font-serif mb-8 border-b border-gray-50 pb-4 text-[#1A1A1A]">Conexão</h4>
-              <ul className="space-y-8">
-                <li className="space-y-1">
-                  <p className="text-[10px] font-black text-[#C5A059] uppercase tracking-widest">17:00h às 20:00h</p>
-                  <p className="font-bold text-[#1A1A1A] text-sm">Boas-vindas + Palestra inicial</p>
-                </li>
-                <li className="space-y-1">
-                  <p className="text-[10px] font-black text-[#C5A059] uppercase tracking-widest">Noite</p>
-                  <p className="font-bold text-[#1A1A1A] text-sm">Jantar leve com vinhos selecionados</p>
-                </li>
-                <li className="space-y-1">
-                  <p className="text-[10px] font-black text-[#C5A059] uppercase tracking-widest">Ritual</p>
-                  <p className="font-bold text-[#1A1A1A] text-sm italic text-[#4B001D]">Fogueira de ativação energética</p>
-                </li>
-              </ul>
+    <!-- 2. O QUE VOCÊ VAI ACESSAR -->
+    <section id="acesso" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
+                <div class="space-y-4 md:max-w-2xl text-left">
+                    <h2 class="text-[11px] font-black uppercase tracking-[0.5em] text-dourado">Acesso Direto</h2>
+                    <h3 class="text-5xl font-serif text-[#1A1A1A]">O que você vai acessar</h3>
+                    <p class="text-gray-500 text-xl font-light">Fundamentos da numerologia aplicados integralmente à sua realidade.</p>
+                </div>
+                <div class="w-24 h-1 bg-vinho hidden md:block"></div>
             </div>
 
-            {/* Sábado */}
-            <div className="bg-[#4B001D] p-12 text-white border-r border-[#630026] relative overflow-hidden group">
-              <div className="text-[10px] font-bold uppercase tracking-widest text-[#C5A059] mb-4">DIA 02 • SÁBADO (02/05)</div>
-              <h4 className="text-3xl font-serif mb-8 border-b border-white/10 pb-4">O Mergulho</h4>
-              <ul className="space-y-8">
-                <li className="space-y-1">
-                  <p className="text-[10px] font-black text-[#C5A059] uppercase tracking-widest">Manhã</p>
-                  <p className="font-medium text-white text-sm leading-relaxed">Numerologia aplicada ao autoconhecimento e desbloqueio completo dos números pessoais.</p>
-                </li>
-                <li className="space-y-1">
-                  <p className="text-[10px] font-black text-[#C5A059] uppercase tracking-widest">Almoço</p>
-                  <p className="font-bold text-white text-sm italic">Menu exclusivo preparado por Oscar Ahumada</p>
-                </li>
-                <li className="space-y-1">
-                  <p className="text-[10px] font-black text-[#C5A059] uppercase tracking-widest">Tarde</p>
-                  <p className="font-medium text-white text-sm leading-relaxed">Espelhamento energético (prática guiada), Aula de Grafologia (escrita e assinatura), Numerologia da casa e ajustes vibracionais.</p>
-                </li>
-                <li className="space-y-1">
-                  <p className="text-[10px] font-black text-[#C5A059] uppercase tracking-widest">Noite</p>
-                  <p className="font-bold text-white text-sm">Jantar especial com pizzas, saladas e vinhos</p>
-                </li>
-              </ul>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-10 border border-gray-100 bg-off-white hover:bg-white hover:shadow-2xl transition-all duration-500 rounded-sm card-shadow group">
+                    <div class="text-dourado mb-6"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg></div>
+                    <h4 class="text-xl font-serif mb-4 text-vinho">Mapa Numerológico</h4>
+                    <p class="text-gray-500 font-light leading-relaxed">Seu mapa pessoal revelado com profundidade e clareza absoluta.</p>
+                </div>
+                <div class="p-10 border border-gray-100 bg-off-white hover:bg-white hover:shadow-2xl transition-all duration-500 rounded-sm card-shadow group">
+                    <div class="text-dourado mb-6"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                    <h4 class="text-xl font-serif mb-4 text-vinho">Quebra de Padrões</h4>
+                    <p class="text-gray-500 font-light leading-relaxed">Identificação dos padrões repetitivos e as chaves para os interromper.</p>
+                </div>
+                <div class="p-10 border border-gray-100 bg-off-white hover:bg-white hover:shadow-2xl transition-all duration-500 rounded-sm card-shadow group">
+                    <div class="text-dourado mb-6"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></div>
+                    <h4 class="text-xl font-serif mb-4 text-vinho">Bloqueios Invisíveis</h4>
+                    <p class="text-gray-500 font-light leading-relaxed">Revelação das travas que impedem seu crescimento real e evolução.</p>
+                </div>
+                <div class="p-10 border border-gray-100 bg-off-white hover:bg-white hover:shadow-2xl transition-all duration-500 rounded-sm card-shadow group">
+                    <div class="text-dourado mb-6"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div>
+                    <h4 class="text-xl font-serif mb-4 text-vinho">Timing Estratégico</h4>
+                    <p class="text-gray-500 font-light leading-relaxed">Saber o momento exato para agir e tomar decisões seguras de vida.</p>
+                </div>
+                <div class="p-10 border border-gray-100 bg-off-white hover:bg-white hover:shadow-2xl transition-all duration-500 rounded-sm card-shadow group">
+                    <div class="text-dourado mb-6"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.5-7 3 10 1 15 1 15z"></path></svg></div>
+                    <h4 class="text-xl font-serif mb-4 text-vinho">Desbloqueio Energético</h4>
+                    <p class="text-gray-500 font-light leading-relaxed">Técnicas práticas e diretas para liberar a sua energia pessoal estagnada.</p>
+                </div>
+                <div class="p-10 border border-gray-100 bg-off-white hover:bg-white hover:shadow-2xl transition-all duration-500 rounded-sm card-shadow group">
+                    <div class="text-dourado mb-6"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg></div>
+                    <h4 class="text-xl font-serif mb-4 text-vinho">Fundamentos Reais</h4>
+                    <p class="text-gray-500 font-light leading-relaxed">O conhecimento técnico da numerologia aplicado à sua vida atual.</p>
+                </div>
             </div>
-
-            {/* Domingo */}
-            <div className="p-12 hover:bg-[#FDFBF9] transition-all bg-white">
-              <div className="text-[10px] font-bold uppercase tracking-widest text-[#1A2F1A] mb-4">DIA 03 • DOMINGO (03/05)</div>
-              <h4 className="text-3xl font-serif mb-8 border-b border-gray-50 pb-4 text-[#1A1A1A]">Clareza Final</h4>
-              <ul className="space-y-8">
-                <li className="space-y-1">
-                  <p className="text-[10px] font-black text-[#C5A059] uppercase tracking-widest">Personalizado</p>
-                  <p className="font-bold text-[#1A1A1A] text-sm">Atendimentos individuais ao vivo</p>
-                </li>
-                <li className="space-y-1">
-                  <p className="text-[10px] font-black text-[#C5A059] uppercase tracking-widest">Aprendizado</p>
-                  <p className="font-bold text-[#1A1A1A] text-sm">Análise prática de números de familiares</p>
-                </li>
-                <li className="space-y-1">
-                  <p className="text-[10px] font-black text-[#C5A059] uppercase tracking-widest">Encerramento</p>
-                  <p className="font-bold text-[#1A1A1A] text-sm">Almoço de celebração e entrega de certificados</p>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      {/* 6. O QUE VOCÊ RECEBE */}
-      <section className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="md:w-1/2 space-y-8">
-              <h3 className="text-5xl font-serif text-[#4B001D]">O que você recebe</h3>
-              <div className="grid gap-6">
-                {[
-                  { label: "Acesso Vitalício", text: "Material de apoio completo para consulta permanente.", icon: <Lock size={20} /> },
-                  { label: "Certificado Exclusivo", text: "Validação oficial da sua participação na imersão.", icon: <Award size={20} /> },
-                  { label: "Bônus Especial", text: "Calculadora de Mapa Numerológico Pessoal inclusa.", icon: <Calculator size={20} /> },
-                  { label: "Vivência Prática", text: "Aplicação real em seu contexto de vida atual.", icon: <CheckCircle2 size={20} /> }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex gap-4 p-6 bg-[#FDFBF9] rounded-sm border border-gray-50">
-                    <div className="text-[#C5A059]">{item.icon}</div>
-                    <div>
-                      <p className="font-bold text-xs uppercase tracking-widest mb-1 text-[#1A1A1A]">{item.label}</p>
-                      <p className="text-sm text-gray-500 font-light">{item.text}</p>
+    <!-- 3. UMA EXPERIÊNCIA COMPLETA -->
+    <section id="experiencia" class="py-32 bg-vinho text-white overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+            <div class="relative order-2 md:order-1">
+                <img src="https://oscarahumada.com.br/wp-content/uploads/2024/09/Oscar.png" 
+                     alt="Oscar Ahumada Hospitalidade" class="relative w-full h-[650px] object-cover rounded-sm shadow-2xl">
+                <div class="absolute -bottom-10 -left-10 bg-dourado p-10 shadow-2xl max-w-[320px]">
+                    <p class="text-white font-serif italic text-3xl mb-4 leading-tight">Presença Real</p>
+                    <p class="text-[10px] uppercase tracking-widest text-white/90 font-black">Alimentação completa preparada pelo próprio mentor.</p>
+                </div>
+            </div>
+
+            <div class="space-y-12 order-1 md:order-2 text-left">
+                <div class="space-y-6">
+                    <h2 class="text-[11px] font-black uppercase tracking-[0.5em] text-dourado">Corpo, Mente e Energia</h2>
+                    <h3 class="text-5xl font-serif leading-tight">Uma experiência completa</h3>
+                    <p class="text-gray-300 text-xl font-light leading-relaxed">
+                        Durante 3 dias, você estará totalmente imerso. Sem distrações. Sem deslocamentos. Apenas você, seu processo e sua transformação.
+                    </p>
+                </div>
+
+                <div class="grid gap-10">
+                    <div class="flex gap-6">
+                        <div class="text-dourado shrink-0"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></div>
+                        <div>
+                            <h5 class="font-black text-xs uppercase tracking-widest text-dourado mb-1">Hospedagem Inclusa</h5>
+                            <p class="text-gray-300 font-light text-sm">Permanência integral no local exclusivo da imersão.</p>
+                        </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                    <div class="flex gap-6">
+                        <div class="text-dourado shrink-0"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.703 2.703 0 01-3 0 2.703 2.703 0 01-3 0 2.703 2.703 0 01-3 0 2.704 2.704 0 01-1.5-.454M3 8V4a2 2 0 012-2h14a2 2 0 012 2v4M5 20h14a2 2 0 002-2V8H3v10a2 2 0 002 2z"></path></svg></div>
+                        <div>
+                            <h5 class="font-black text-xs uppercase tracking-widest text-dourado mb-1">Alimentação Gourmet</h5>
+                            <p class="text-gray-300 font-light text-sm">Menu completo preparado e assinado pessoalmente por Oscar Ahumada.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="text-dourado shrink-0"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z"></path></svg></div>
+                        <div>
+                            <h5 class="font-black text-xs uppercase tracking-widest text-dourado mb-1">Ambiente Energético</h5>
+                            <p class="text-gray-300 font-light text-sm">Casa com piscina e natureza preservada para foco absoluto.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="text-dourado shrink-0"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.5-7 3 10 1 15 1 15z"></path></svg></div>
+                        <div>
+                            <h5 class="font-black text-xs uppercase tracking-widest text-dourado mb-1">Fogueira de Ativação</h5>
+                            <p class="text-gray-300 font-light text-sm">Cerimónia de abertura na sexta-feira para ativação da energia.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- 4. DETALHES DA IMERSÃO -->
+    <section class="py-24 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-off-white p-12 border-l-4 border-dourado">
+                    <h4 class="text-2xl font-serif mb-8 text-vinho">Datas e Horários</h4>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+                            <span class="text-[10px] font-black uppercase tracking-widest text-gray-400">Check-in</span>
+                            <span class="font-serif text-lg">01/05/2026 • 14:00h</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+                            <span class="text-[10px] font-black uppercase tracking-widest text-gray-400">Check-out</span>
+                            <span class="font-serif text-lg">03/05/2026 • 16:00h</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-off-white p-12 border-l-4 border-vinho">
+                    <h4 class="text-2xl font-serif mb-8 text-vinho">Acomodação Premium</h4>
+                    <div class="space-y-4">
+                        <p class="text-gray-600 font-light">Casa exclusiva em Novo Hamburgo/RS com total privacidade e estacionamento.</p>
+                        <p class="text-[#1A1A1A] font-bold flex items-center gap-3 italic">
+                            <svg class="w-5 h-5 text-dourado" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            Conforto para 6 pessoas em camas de casal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PROGRAMAÇÃO INTENSIVA -->
+    <section id="programacao" class="py-32 bg-[#F9F7F5]">
+        <div class="max-w-7xl mx-auto px-6 text-left">
+            <div class="text-center max-w-3xl mx-auto mb-24 space-y-6">
+                <h2 class="text-[11px] font-black uppercase tracking-[0.5em] text-dourado">Cronograma</h2>
+                <h3 class="text-5xl font-serif text-[#1A1A1A]">Programação Transformadora</h3>
+                <div class="w-24 h-1 bg-dourado mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-0 border border-gray-100 shadow-3xl rounded-sm overflow-hidden bg-white">
+                <!-- Sexta -->
+                <div class="p-12 border-r border-gray-100 hover:bg-off-white transition-all">
+                    <div class="text-[10px] font-bold uppercase tracking-widest text-vinho mb-6">DIA 01 • SEXTA-FEIRA (01/05)</div>
+                    <h4 class="text-3xl font-serif mb-10 border-b border-gray-100 pb-4">Conexão</h4>
+                    <ul class="space-y-8">
+                        <li>
+                            <p class="text-[10px] font-black text-dourado uppercase tracking-widest mb-1">17h às 20h</p>
+                            <p class="font-bold text-[#1A1A1A]">Boas-vindas + Palestra inicial</p>
+                        </li>
+                        <li>
+                            <p class="text-[10px] font-black text-dourado uppercase tracking-widest mb-1">Jantar</p>
+                            <p class="text-sm text-gray-500 font-light">Jantar leve acompanhado de vinhos selecionados.</p>
+                        </li>
+                        <li>
+                            <p class="text-[10px] font-black text-vinho uppercase tracking-widest mb-1">Ritual</p>
+                            <p class="font-bold italic text-vinho">Fogueira de ativação energética.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sábado -->
+                <div class="bg-vinho p-12 text-white border-r border-vinho/80 relative overflow-hidden group">
+                    <div class="text-[10px] font-bold uppercase tracking-widest text-dourado mb-6">DIA 02 • SÁBADO (02/05)</div>
+                    <h4 class="text-3xl font-serif mb-10 border-b border-white/10 pb-4">O Mergulho</h4>
+                    <ul class="space-y-8 text-white/90">
+                        <li>
+                            <p class="text-[10px] font-black text-dourado uppercase tracking-widest mb-1">Manhã</p>
+                            <p class="text-sm font-light leading-relaxed">Numerologia aplicada ao autoconhecimento e desbloqueio completo dos números pessoais.</p>
+                        </li>
+                        <li>
+                            <p class="text-[10px] font-black text-dourado uppercase tracking-widest mb-1">Almoço</p>
+                            <p class="font-bold italic">Menu exclusivo preparado por Oscar Ahumada.</p>
+                        </li>
+                        <li>
+                            <p class="text-[10px] font-black text-dourado uppercase tracking-widest mb-1">Tarde</p>
+                            <p class="text-sm font-light leading-relaxed">Espelhamento energético, Aula de grafologia e Numerologia da casa.</p>
+                        </li>
+                        <li>
+                            <p class="text-[10px] font-black text-dourado uppercase tracking-widest mb-1 text-white">Noite</p>
+                            <p class="font-bold">Jantar especial: Pizzas, saladas e vinhos.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Domingo -->
+                <div class="p-12 hover:bg-off-white transition-all bg-white">
+                    <div class="text-[10px] font-bold uppercase tracking-widest text-[#1A2F1A] mb-6">DIA 03 • DOMINGO (03/05)</div>
+                    <h4 class="text-3xl font-serif mb-10 border-b border-gray-100 pb-4">Clareza Final</h4>
+                    <ul class="space-y-8 text-gray-600">
+                        <li>
+                            <p class="text-[10px] font-black text-dourado uppercase tracking-widest mb-1">Personalizado</p>
+                            <p class="font-bold text-[#1A1A1A]">Atendimentos VIP individuais ao vivo.</p>
+                        </li>
+                        <li>
+                            <p class="text-[10px] font-black text-dourado uppercase tracking-widest mb-1 text-vinho">Aprendizado</p>
+                            <p class="text-sm text-gray-500 font-light italic">Análise prática direta de números de familiares.</p>
+                        </li>
+                        <li>
+                            <p class="text-[10px] font-black text-dourado uppercase tracking-widest mb-1">Encerramento</p>
+                            <p class="font-bold text-[#1A1A1A]">Almoço de celebração e entrega de certificados.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. O QUE VOCÊ RECEBE -->
+    <section class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-20">
+                <div class="md:w-1/2 space-y-10">
+                    <h3 class="text-5xl font-serif text-vinho">O que você recebe</h3>
+                    <div class="grid gap-6">
+                        <div class="flex gap-4 p-8 bg-off-white rounded-sm border border-gray-50 card-shadow transition-all">
+                            <div class="text-dourado mt-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></div>
+                            <div>
+                                <p class="font-bold text-[10px] uppercase tracking-widest text-[#1A1A1A] mb-1">Acesso Vitalício</p>
+                                <p class="text-sm text-gray-500 font-light">Material de apoio completo para consulta permanente.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-8 bg-off-white rounded-sm border border-gray-50 card-shadow transition-all">
+                            <div class="text-dourado mt-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg></div>
+                            <div>
+                                <p class="font-bold text-[10px] uppercase tracking-widest text-[#1A1A1A] mb-1">Certificado Exclusivo</p>
+                                <p class="text-sm text-gray-500 font-light">Validação oficial da sua participação na imersão.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-8 bg-off-white rounded-sm border border-gray-50 card-shadow transition-all">
+                            <div class="text-dourado mt-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg></div>
+                            <div>
+                                <p class="font-bold text-[10px] uppercase tracking-widest text-[#1A1A1A] mb-1">Bônus Especial</p>
+                                <p class="text-sm text-gray-500 font-light">Calculadora de Mapa Numerológico Pessoal inclusa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. PARA QUEM É -->
+                <div class="md:w-1/2 p-12 bg-vinho text-white rounded-sm shadow-3xl relative overflow-hidden">
+                    <h3 class="text-3xl font-serif mb-12 text-dourado leading-tight">Para quem é esta imersão?</h3>
+                    <div class="space-y-8">
+                        <div class="flex gap-4">
+                            <svg class="w-6 h-6 text-dourado shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <p class="text-lg font-light leading-relaxed">Para quem sente que está pronto para mudar de nível real na vida.</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <svg class="w-6 h-6 text-dourado shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <p class="text-lg font-light leading-relaxed">Para quem busca respostas claras — sem misticismo vazio.</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <svg class="w-6 h-6 text-dourado shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <p class="text-lg font-light leading-relaxed">Para quem quer aprender, aplicar e transformar a sua realidade.</p>
+                        </div>
+                        <div class="flex gap-4 border-t border-white/10 pt-8">
+                            <p class="text-dourado font-bold text-sm uppercase tracking-widest">E principalmente:</p>
+                        </div>
+                        <p class="text-xl font-light italic leading-relaxed text-gray-200">
+                            "Para quem entende que o acesso ao conhecimento certo encurta anos de tentativa e erro."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. AUTORIDADE -->
+    <section id="autoridade" class="bg-off-white py-24 border-y border-gray-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 space-y-4">
+                <h2 class="text-[11px] font-black uppercase tracking-[0.5em] text-dourado">Autoridade Consolidada</h2>
+                <h3 class="text-4xl font-serif text-vinho">Referência em Rede Nacional</h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-sm overflow-hidden flex flex-col md:flex-row shadow-sm hover:shadow-xl transition-all duration-700 group">
+                    <div class="md:w-1/3 h-64 md:h-auto overflow-hidden">
+                        <img src="https://i.vimeocdn.com/video/432482891-53e342322ab4648f2b4e130c8f87e620eec35a6916aadf063bb35517112597f6-d_2400?region=us" 
+                             alt="Mais Você" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000">
+                    </div>
+                    <div class="md:w-2/3 p-10 flex flex-col justify-center">
+                        <div class="text-dourado font-black text-[10px] uppercase tracking-widest mb-2">Mais Você</div>
+                        <h4 class="text-xl font-serif text-[#1A1A1A] mb-4">Com Ana Maria Braga</h4>
+                        <p class="text-sm text-gray-500 leading-relaxed font-light">Participação icónica analisando a vibração de personalidades e ciclos anuais ao vivo para o país.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-sm overflow-hidden flex flex-col md:flex-row shadow-sm hover:shadow-xl transition-all duration-700 group">
+                    <div class="md:w-1/3 h-64 md:h-auto overflow-hidden">
+                        <img src="https://s2-gshow.glbimg.com/5mxBQF5NZUQa95GR24lTDtrrWd0=/0x0:5472x3648/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2016/X/L/u0evUOQHuZ8MsWB9rwBw/dsc01960.jpg" 
+                             alt="Encontro" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000">
+                    </div>
+                    <div class="md:w-2/3 p-10 flex flex-col justify-center">
+                        <div class="text-dourado font-black text-[10px] uppercase tracking-widest mb-2">Encontro</div>
+                        <h4 class="text-xl font-serif text-[#1A1A1A] mb-4">Com Fátima Bernardes</h4>
+                        <p class="text-sm text-gray-500 leading-relaxed font-light">Referência no palco da Globo trazendo clareza sobre o destino e os códigos numerológicos em rede nacional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. SÃO APENAS 6 VAGAS (BIO INCORPORADA) -->
+    <section class="py-32 bg-vinho text-center relative">
+        <div class="max-w-4xl mx-auto px-6 space-y-12">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/5 mb-4 text-dourado shadow-2xl animate-pulse">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 15c-.77 1.333.192 3 1.732 3z"></path></svg>
+            </div>
+            <h2 class="text-5xl md:text-7xl font-serif text-white leading-tight uppercase">SÃO APENAS <span class="text-dourado">6 VAGAS</span></h2>
             
-            {/* 7. PARA QUEM É ESSA IMERSÃO */}
-            <div className="md:w-1/2 p-12 bg-[#4B001D] text-white rounded-sm shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
-              <h3 className="text-3xl font-serif mb-10 text-[#C5A059]">Para quem é esta imersão?</h3>
-              <div className="space-y-6">
-                {[
-                  "Para quem sente que está pronto para mudar de nível.",
-                  "Para quem busca respostas claras — sem misticismo vazio.",
-                  "Para quem quer aprender, aplicar e transformar.",
-                  "Para quem entende que o acesso ao conhecimento certo encurta anos de tentativa e erro."
-                ].map((text, idx) => (
-                  <div key={idx} className="flex gap-4">
-                    <CheckCircle2 size={18} className="text-[#C5A059] shrink-0 mt-1" />
-                    <p className="text-sm font-light leading-relaxed">{text}</p>
-                  </div>
-                ))}
-              </div>
+            <div class="max-w-2xl mx-auto space-y-10 text-white text-left bg-white/5 p-12 border border-white/10">
+                <p class="text-2xl font-light leading-relaxed italic border-l-4 border-dourado pl-8">
+                    "E isso não é estratégia de marketing. É estrutura energética."
+                </p>
+                <p class="text-lg text-gray-300 font-light leading-relaxed">
+                    Cada pessoa será acompanhada de perto. Cada número será analisado com profundidade. Cada história será respeitada.
+                </p>
+                <p class="pt-6 text-dourado font-black uppercase tracking-[0.4em] text-xs text-center border-t border-white/10 pt-10">
+                    Quando essas 6 vagas forem preenchidas, não haverá nova turma nesse formato.
+                </p>
             </div>
-          </div>
+
+            <!-- Ajuste Bio: Rede Nacional -->
+            <div class="pt-20 space-y-8 text-left max-w-2xl mx-auto border-t border-white/5">
+                <h4 class="text-dourado font-serif italic text-3xl">O Numerólogo das Estrelas</h4>
+                <p class="text-gray-300 font-light leading-relaxed">
+                    Tornou-se uma referência nacional após participações marcantes em programas em <strong class="text-white">Rede Nacional</strong>, ajudando milhares de pessoas a compreenderem os seus ciclos e a tomarem decisões com base na força dos números.
+                </p>
+            </div>
         </div>
-      </section>
+    </section>
 
-      {/* 8. AUTORIDADE (REDE NACIONAL) */}
-      <section id="autoridade" className="bg-[#F9F7F5] py-24 border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-[11px] font-black uppercase tracking-[0.5em] text-[#C5A059]">Reconhecimento</h2>
-            <h3 className="text-4xl font-serif text-[#4B001D]">Trajetória em Rede Nacional</h3>
-            <p className="text-gray-500 font-light italic text-sm">Mais de 40 anos ajudando pessoas a compreenderem seus ciclos.</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="group bg-white rounded-sm overflow-hidden flex flex-col md:flex-row shadow-sm hover:shadow-xl transition-all duration-500">
-              <div className="md:w-1/3 relative h-56 md:h-auto overflow-hidden">
-                <img src={MAIS_VOCE_IMAGE} alt="Mais Você" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
-              </div>
-              <div className="md:w-2/3 p-8 flex flex-col justify-center">
-                <div className="inline-flex items-center space-x-2 text-[#C5A059] mb-2">
-                  <Tv size={14} />
-                  <span className="text-[10px] font-black uppercase tracking-widest">Mais Você</span>
-                </div>
-                <h4 className="text-xl font-serif text-[#1A1A1A] mb-2">Com Ana Maria Braga</h4>
-                <p className="text-xs text-gray-500 leading-relaxed font-light">Participação analisando números e vibrações de personalidades ao vivo para todo o Brasil.</p>
-              </div>
-            </div>
-            <div className="group bg-white rounded-sm overflow-hidden flex flex-col md:flex-row shadow-sm hover:shadow-xl transition-all duration-500">
-              <div className="md:w-1/3 relative h-56 md:h-auto overflow-hidden">
-                <img src={ENCONTRO_IMAGE} alt="Encontro" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
-              </div>
-              <div className="md:w-2/3 p-8 flex flex-col justify-center">
-                <div className="inline-flex items-center space-x-2 text-[#C5A059] mb-2">
-                  <Tv size={14} />
-                  <span className="text-[10px] font-black uppercase tracking-widest">Encontro</span>
-                </div>
-                <h4 className="text-xl font-serif text-[#1A1A1A] mb-2">Com Fátima Bernardes</h4>
-                <p className="text-xs text-gray-500 leading-relaxed font-light">Referência no palco para trazer clareza sobre ciclos de vida e destino em rede nacional.</p>
-              </div>
-            </div>
-          </div>
-          <div className="mt-12 text-center text-[10px] font-black tracking-[0.4em] opacity-30 text-[#1A1A1A]">
-            TV GLOBO • DÉCADAS DE REFERÊNCIA NACIONAL
-          </div>
-        </div>
-      </section>
-
-      {/* 9. SÃO APENAS 6 VAGAS (ESCASSEZ REAL) */}
-      <section className="py-32 bg-[#4B001D] text-[#C5A059] text-center relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-6 space-y-10 relative z-10">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/5 mb-4 shadow-inner animate-pulse">
-            <AlertCircle size={40} />
-          </div>
-          <h2 className="text-5xl md:text-6xl font-serif text-white leading-tight">SÃO APENAS <span className="text-[#C5A059]">6 VAGAS</span></h2>
-          <div className="max-w-2xl mx-auto space-y-8 text-white">
-            <p className="text-2xl font-light leading-relaxed italic opacity-90">
-              "E isso não é estratégia de marketing. É estrutura energética."
-            </p>
-            <div className="grid sm:grid-cols-3 gap-8 pt-8">
-              <div className="text-center">
-                <p className="text-[10px] font-black uppercase tracking-widest text-[#C5A059] mb-2">Acompanhamento</p>
-                <p className="text-sm font-light">Cada pessoa será vista de perto.</p>
-              </div>
-              <div className="text-center">
-                <p className="text-[10px] font-black uppercase tracking-widest text-[#C5A059] mb-2">Profundidade</p>
-                <p className="text-sm font-light">Cada número analisado detalhadamente.</p>
-              </div>
-              <div className="text-center">
-                <p className="text-[10px] font-black uppercase tracking-widest text-[#C5A059] mb-2">Respeito</p>
-                <p className="text-sm font-light">Cada história será honrada.</p>
-              </div>
-            </div>
-            <p className="pt-10 text-[#C5A059] font-black uppercase tracking-[0.3em] text-xs">
-              Quando essas 6 vagas forem preenchidas, não haverá nova turma nesse formato.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 10. BLOCO FINAL DE CONVERSÃO */}
-      <section id="checkout" className="py-32 bg-black text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#C5A059]/40 via-transparent to-transparent"></div>
+    <!-- 10. BLOCO FINAL DE CONVERSÃO -->
+    <section id="checkout" class="py-32 bg-black text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-40">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-vinho/40 via-transparent to-transparent"></div>
         </div>
         
-        <div className="relative max-w-4xl mx-auto px-6 space-y-16">
-          <div className="space-y-10">
-            <h2 className="text-[11px] font-black uppercase tracking-[0.5em] text-[#C5A059]">Sua Decisão</h2>
-            <div className="space-y-6">
-              <h3 className="text-5xl md:text-7xl font-serif leading-tight">A sua vida já está te <br />dando sinais.</h3>
-              <p className="text-[#C5A059] text-2xl md:text-3xl font-serif italic max-w-3xl mx-auto leading-relaxed">
-                "Se você sentiu que esse convite é para você, então não ignore."
-              </p>
+        <div class="relative max-w-4xl mx-auto px-6 space-y-16">
+            <div class="space-y-10">
+                <h2 class="text-[11px] font-black uppercase tracking-[0.5em] text-dourado uppercase">O seu momento de decisão</h2>
+                <div class="space-y-8">
+                    <h3 class="text-5xl md:text-8xl font-serif leading-tight text-white drop-shadow-md">
+                        A sua vida já está te <br>dando sinais.
+                    </h3>
+                    <p class="text-dourado text-2xl md:text-4xl font-serif italic max-w-3xl mx-auto leading-relaxed">
+                        "Se você sentiu que esse convite é para você, então não ignore."
+                    </p>
+                </div>
+                <p class="text-gray-400 font-light text-2xl md:text-3xl italic max-w-xl mx-auto leading-relaxed">
+                    Agora você decide se vai continuar repetindo… <br> ou finalmente entender.
+                </p>
             </div>
-            <p className="text-gray-400 font-light text-2xl italic max-w-xl mx-auto leading-relaxed">
-              Agora você decide se vai continuar repetindo… <br /> ou finalmente entender.
-            </p>
-          </div>
 
-          <div className="bg-white p-12 shadow-3xl text-black space-y-10 rounded-sm max-w-2xl mx-auto">
-            <div className="space-y-6">
-              <p className="text-[10px] font-black uppercase tracking-widest text-[#4B001D] mb-4">Investimento Maio 2026 | All-Inclusive</p>
-              <div className="flex flex-col items-center">
-                <span className="text-lg text-gray-400 line-through mb-1 font-light italic">de R$ 4.999,99</span>
-                <div className="flex items-baseline space-x-2">
-                  <span className="text-2xl font-serif text-[#4B001D]">por</span>
-                  <span className="text-6xl md:text-7xl font-serif text-[#4B001D] font-bold tracking-tighter">R$ 3.000,00</span>
+            <div class="bg-white p-12 shadow-3xl text-black space-y-10 rounded-sm max-w-2xl mx-auto transform hover:scale-[1.02] transition-all duration-500">
+                <div class="space-y-6">
+                    <p class="text-[10px] font-black uppercase tracking-widest text-vinho mb-4 text-center">Investimento Maio 2026 • All-Inclusive</p>
+                    <div class="flex flex-col items-center">
+                        <span class="text-xl text-gray-400 line-through mb-1 font-light italic">de R$ 4.999,99</span>
+                        <div class="flex items-baseline space-x-3">
+                            <span class="text-2xl font-serif text-vinho">por</span>
+                            <span class="text-6xl md:text-8xl font-serif text-vinho font-bold tracking-tighter">R$ 3.000,00</span>
+                        </div>
+                    </div>
+                    <div class="pt-6 space-y-2 border-t border-gray-100 mt-6">
+                        <p class="text-sm text-gray-500 italic font-medium">Hospedagem e Alimentação Gourmet inclusas</p>
+                        <div class="flex justify-center items-center gap-6 text-[9px] font-black uppercase tracking-widest text-dourado">
+                            <span class="flex items-center gap-2"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg> Inscrição Segura</span>
+                            <span class="flex items-center gap-2"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.9L10 9.503l7.834-4.603a1 1 0 00-1.168-1.623L10 6.134 3.334 3.277a1 1 0 00-1.168 1.623zM18 6.777l-7.583 4.462a1 1 0 01-.834 0L2 6.777V13.5a2 2 0 002 2h12a2 2 0 002-2V6.777z" clip-rule="evenodd"></path></svg> Suporte Digital</span>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div className="pt-4 space-y-2 border-t border-gray-50 mt-4">
-                <p className="text-sm text-gray-500 italic font-medium">Hospedagem e Alimentação Gourmet inclusas</p>
-                <div className="flex justify-center items-center gap-4 text-[9px] font-black uppercase tracking-widest text-[#C5A059]">
-                  <span className="flex items-center gap-1"><Smartphone size={10} /> Inscrição Digital</span>
-                  <span className="flex items-center gap-1"><ShieldCheck size={10} /> Vaga Garantida</span>
-                </div>
-              </div>
+                
+                <a href="#" class="block w-full bg-vinho text-white py-8 rounded-sm text-sm font-bold uppercase tracking-[0.4em] hover:bg-dourado transition-all shadow-2xl flex items-center justify-center space-x-4">
+                    <span>Garanta sua vaga na imersão</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
             </div>
             
-            <button className="w-full bg-[#4B001D] text-white py-8 rounded-sm text-sm font-bold uppercase tracking-[0.4em] hover:bg-[#C5A059] transition-all transform hover:scale-[1.02] shadow-2xl flex items-center justify-center space-x-4">
-              <span>Garanta sua vaga na imersão</span>
-              <ArrowRight size={20} />
-            </button>
-            
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-8 text-[#1A1A1A]/40 border-t border-gray-100 pt-8">
-              <div className="flex items-center space-x-2">
-                <Smartphone size={16} />
-                <span className="text-[9px] font-black uppercase tracking-widest text-center">Atendimento direto via WhatsApp</span>
-              </div>
+            <div class="space-y-4">
+                <p class="text-dourado text-xs font-black tracking-widest uppercase">Novo Hamburgo • 01 a 03 de Maio de 2026</p>
+                <p class="text-gray-500 text-[10px] uppercase tracking-[0.3em] font-medium italic">Vagas limitadas ao grupo seleto de 6 participantes.</p>
             </div>
-          </div>
-          
-          <div className="space-y-2">
-            <p className="text-[#C5A059] text-xs font-black tracking-widest uppercase">Novo Hamburgo • 01 a 03 de Maio de 2026</p>
-            <p className="text-gray-600 text-[10px] uppercase tracking-[0.3em] font-medium">Lugar estratégico. Grupo seleto. Transformação real.</p>
-          </div>
         </div>
-      </section>
+    </section>
 
-      {/* Rodapé Clean */}
-      <footer className="bg-white text-gray-400 py-16 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
-          <div className="text-left">
-            <h4 className="text-[#4B001D] font-serif tracking-tighter text-2xl mb-1">Oscar <span className="font-light italic text-[#C5A059]">Ahumada</span></h4>
-            <p className="text-[9px] font-black uppercase tracking-[0.3em] opacity-60">Numerologia Estratégica & Realinhamento de Vida</p>
-          </div>
-          <div className="flex space-x-10 text-[10px] font-black uppercase tracking-widest text-[#1A1A1A]">
-            <a href="https://oscarahumada.com.br" className="hover:text-[#C5A059] transition-colors">Site Oficial</a>
-            <a href="#" className="hover:text-[#C5A059] transition-colors">WhatsApp</a>
-          </div>
-          <div className="text-[10px] font-medium uppercase tracking-[0.2em] opacity-40">
-            © 2026 Oscar Ahumada • Novo Hamburgo, RS
-          </div>
+    <!-- Footer -->
+    <footer class="bg-white text-gray-400 py-20 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="text-left space-y-2">
+                <h4 class="text-vinho font-serif tracking-tighter text-3xl">Oscar <span class="font-light italic text-dourado">Ahumada</span></h4>
+                <p class="text-[9px] font-black uppercase tracking-[0.3em] opacity-60">Numerologia Estratégica & Realinhamento de Vida</p>
+            </div>
+            <div class="flex space-x-12 text-[10px] font-black uppercase tracking-widest text-[#1A1A1A]">
+                <a href="https://oscarahumada.com.br" class="hover:text-dourado transition-colors">Site Oficial</a>
+                <a href="#" class="hover:text-dourado transition-colors">Instagram</a>
+                <a href="#" class="hover:text-dourado transition-colors">WhatsApp</a>
+            </div>
+            <div class="text-[10px] font-medium uppercase tracking-[0.2em] opacity-40">
+                © 2026 Oscar Ahumada • Novo Hamburgo, RS
+            </div>
         </div>
-      </footer>
-    </div>
-  );
-};
+    </footer>
 
-export default App;
+</body>
+</html>
